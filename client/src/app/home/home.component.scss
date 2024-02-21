@@ -1,0 +1,39 @@
+.home-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    .welcome-page {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+
+        h1 {
+            align-self: center;
+        }
+
+        .buttons-container {
+            align-self: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 1rem;
+
+            button{
+                background-color: transparent;
+                border: 1px rgb(16, 80, 154) solid;
+                padding: 8px 10px;
+                font-size: 1rem;
+                color: rgb(16, 80, 154);
+                transition: .2s;
+                width: 20vw;
+
+                &:hover{
+                    background-color: rgb(16, 80, 154);
+                    color: white;
+                }
+            }
+        }
+    }
+}
