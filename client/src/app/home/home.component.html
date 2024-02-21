@@ -1,0 +1,12 @@
+<div class="home-container">
+    <div *ngIf="!registerMode" class="welcome-page">
+        <h1>Swipe for match</h1>
+        <div class="buttons-container">
+            <button (click)="registerToggle()">Create account</button>
+            <button>About Author</button>
+        </div>
+    </div>
+    <div *ngIf="registerMode">
+        <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
+    </div>
+</div>
