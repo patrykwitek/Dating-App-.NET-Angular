@@ -1,6 +1,6 @@
 nav {
     width: 100vw;
-    height: 70px;
+    height: 65px;
     position: fixed;
     top: 0;
     background-color: rgb(23, 44, 103);
@@ -23,7 +23,7 @@ nav {
     }
 
     .nav-items {
-        height: 70px;
+        height: 65px;
         display: flex;
         align-items: center;
         margin: 0;
@@ -62,7 +62,7 @@ nav {
             gap: 5px;
             transition: .2s;
 
-            &.highlighted{
+            &.highlighted {
                 color: rgb(98, 125, 201);
             }
 
@@ -122,6 +122,8 @@ nav {
         .login-input {
             height: 35px;
             margin-right: .5rem;
+            border: none;
+            border-radius: 0;
 
             &:focus {
                 outline: none;

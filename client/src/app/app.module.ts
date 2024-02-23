@@ -11,6 +11,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { ClickOutsideDirective } from './nav/clickOutside.directive';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
+import { MemberListComponent } from './members/member-list/member-list.component';
+import { MemberDetailComponent } from './members/member-detail/member-detail.component';
+import { ListsComponent } from './lists/lists.component';
+import { MessagesComponent } from './messages/messages.component';
+import { AuthorComponent } from './author/author.component';
+import { SharedModule } from './_modules/shared.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +24,12 @@ import { RegisterComponent } from './register/register.component';
     NavComponent,
     ClickOutsideDirective,
     HomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    MemberListComponent,
+    MemberDetailComponent,
+    ListsComponent,
+    MessagesComponent,
+    AuthorComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +37,8 @@ import { RegisterComponent } from './register/register.component';
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
-    MatIconModule
+    MatIconModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
