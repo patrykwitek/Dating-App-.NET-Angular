@@ -12,6 +12,9 @@
                 <a class="nav-item-text" routerLink="/messages" routerLinkActive="active">Messages</a>
             </li>
         </ng-container>
+        <li class="nav-item">
+            <a class="nav-item-text" routerLink="/errors-testing" routerLinkActive="active">Errors</a>
+        </li>
     </ul>
     <div class="dropdown-list" clickOutside (clickOutside)="clickOutside()" *ngIf="(accountService.currentUser$ | async) as user">
         <a [className]="'dropdown-list-toggle ' + (showDropdownMenu ? 'highlighted' : '')"
