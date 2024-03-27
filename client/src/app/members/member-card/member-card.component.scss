@@ -1,0 +1,104 @@
+.member-container {
+    border: 1px rgb(201, 201, 201) solid;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 10px -6px black;
+
+    .photo-container {
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+
+        img {
+            width: 10rem;
+            transform: scale(1, 1);
+            transition: ease-out .2s;
+        }
+
+        ul{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: .5rem;
+            align-self: center;
+            padding: 0;
+            position: absolute;
+            bottom: -30%;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0;
+            transition: .2s;
+
+            li{
+                display: inline;
+
+                button{
+                    background-color: rgb(23, 44, 103);
+                    border: none;
+                    border-radius: 7px;
+                    transition: .2s;
+                    height: 2.5rem;
+                    width: 2.5rem;
+                    text-align: center;
+                    box-shadow: 0px 0px 9px -2px rgb(23, 44, 103);
+
+                    .btn-icon{
+                        color: white;
+                        position: relative;
+                        top: 6px;
+                        font-size: 1.1rem;
+                    }
+
+                    &:hover{
+                        background-color: rgb(255, 255, 255);
+
+                        .btn-icon{
+                            color: rgb(23, 44, 103);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .member-info-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h6 {
+            .person-icon {
+                color: rgb(44, 44, 44);
+                position: relative;
+                top: 5px;
+            }
+        }
+
+        p {
+            color: gray;
+        }
+    }
+
+    &:hover {
+        .photo-container {
+            img {
+                transform: scale(1.1, 1.1);
+                transition: ease-out .2s;
+                opacity: .5;
+            }
+
+            ul{
+                bottom: 30%;
+                opacity: 1;
+            }
+        }
+    }
+}

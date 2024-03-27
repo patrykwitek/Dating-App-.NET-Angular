@@ -1,0 +1,29 @@
+<div *ngIf="member" class="member-container">
+    <div class="photo-container">
+        <img src="{{member.photoUrl || './assets/user.png'}}" alt="user's photo">
+        <ul>
+            <li>
+                <button>
+                    <mat-icon routerLink="/members/{{member.userName}}" class="btn-icon">person</mat-icon>
+                </button>
+            </li>
+            <li>
+                <button>
+                    <mat-icon class="btn-icon">favorite</mat-icon>
+                </button>
+            </li>
+            <li>
+                <button>
+                    <mat-icon class="btn-icon">chat</mat-icon>
+                </button>
+            </li>
+        </ul>
+    </div>
+    <div class="member-info-container">
+        <h6>
+            <mat-icon class="person-icon">person</mat-icon>
+            {{member.knownAs}}
+        </h6>
+        <p>{{member.city}}</p>
+    </div>
+</div>
