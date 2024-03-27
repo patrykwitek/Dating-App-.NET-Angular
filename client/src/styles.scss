@@ -9,3 +9,70 @@
 .active {
     color: white !important;
 }
+
+.nav-tabs {
+    li {
+        border-bottom: 4px solid transparent;
+
+        a {
+            border: 0 !important;
+            color: #333333 !important;
+
+            i {
+                color: #404040;
+            }
+        }
+
+        &.active {
+            border-bottom: 4px solid rgb(23, 44, 103);
+
+            a {
+                border: 0 !important;
+                color: #333333;
+
+                i {
+                    color: #404040;
+                }
+            }
+        }
+
+        &.open {
+            a {
+                background: none !important;
+                color: #333333;
+
+                i {
+                    color: #a6a6a6;
+                }
+            }
+        }
+
+        &:hover {
+            border-bottom: 4px solid rgb(23, 44, 103);
+
+            a {
+                border: 0;
+                background: none !important;
+                color: #333333;
+
+                i {
+                    color: #a6a6a6;
+                }
+            }
+        }
+    }
+}
+
+.member-tabset {
+    .tab-content {
+        margin-top: -3px;
+        background-color: #fff;
+        border: 0;
+        border-top: 1px solid #eee;
+        padding: 15px 0;
+    }
+}
+
+.users-gallery {
+    height: 600px;
+}
