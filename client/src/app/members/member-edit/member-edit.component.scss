@@ -1,0 +1,137 @@
+.edit-container {
+    width: 100%;
+
+    .top-section {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 2rem 0;
+        height: 50px;
+
+        .title-section {
+            width: 50%;
+        }
+
+        .save-changes-info-section {
+            width: 50%;
+
+            p {
+                border: 1px rgb(155, 192, 234) solid;
+                background-color: rgb(228, 239, 252);
+                padding: 1rem 2rem;
+                color: rgb(43, 102, 169);
+            }
+        }
+    }
+
+    .user-section {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        width: 100%;
+
+        .left-side {
+            width: 300px;
+            height: fit-content;
+            border: 1px rgb(181, 181, 181) solid;
+            border-radius: 10px;
+            box-shadow: 0px 0px 8px -4px rgb(16, 50, 145);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: .5rem;
+
+            img {
+                width: 100%;
+            }
+
+            .info-container {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                padding: .5rem .5rem;
+            }
+
+            .buttons-container {
+                width: 100%;
+
+                button {
+                    width: 100%;
+                    transition: .2s;
+                    border: 1px rgb(23, 44, 103) solid;
+                    background-color: rgb(23, 44, 103);
+                    color: white;
+
+                    .icon {
+                        position: relative;
+                        top: 4px;
+                        font-size: 20px;
+                        transition: .2s;
+                    }
+
+                    &:disabled{
+                        opacity: .8;
+                    }
+
+                    &:enabled:hover {
+                        background-color: transparent;
+                        color: rgb(23, 44, 103);
+
+                        .icon {
+                            top: 3px;
+                            right: 1px;
+                            font-size: 25px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .right-side {
+            width: 50vw;
+
+            .about-container {
+                color: black;
+                display: flex;
+                flex-direction: column;
+
+                form{
+                    width: 100%;
+
+                    textarea{
+                        width: 100%;
+                        border: 1px rgb(175, 175, 175) solid;
+                        border-radius: 10px;
+                        padding-bottom: 10px;
+                        margin: .5rem 0;
+                    }
+
+                    .location-details-section{
+                        width: 50vw;
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 1rem;
+
+                        .location-details-input{
+                            label{
+                                margin-right: .5rem;
+                            }
+
+                            input{
+                                width: 20vw;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .edit-photos-container {
+                color: black;
+
+                p {
+                    width: 500px;
+                }
+            }
+        }
+    }
+}
