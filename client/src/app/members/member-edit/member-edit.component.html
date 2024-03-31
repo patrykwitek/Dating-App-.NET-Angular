@@ -1,0 +1,79 @@
+<div *ngIf="member" class="edit-container">
+    <div class="top-section">
+        <div class="title-section">
+            <h1>Your Profile</h1>
+        </div>
+        <div class="save-changes-info-section">
+            <p *ngIf="editForm.dirty">
+                <strong>Information: </strong>
+                You have made made changes. Any unsaved changes will be lost.
+            </p>
+        </div>
+    </div>
+    <div class="user-section">
+        <div class="left-side">
+            <img src="{{member.photoUrl || './assets/user.png'}}" alt="User's photo">
+            <div class="info-container">
+                <div class="info">
+                    <strong>Location:</strong>
+                    <p>{{member.city}}, {{member.country}}</p>
+                </div>
+                <div class="info">
+                    <strong>Age:</strong>
+                    <p>{{member.age}}</p>
+                </div>
+                <div class="info">
+                    <strong>Last active:</strong>
+                    <p>{{member.lastActive}}</p>
+                </div>
+                <div class="info">
+                    <strong>Member since:</strong>
+                    <p>{{member.created}}</p>
+                </div>
+            </div>
+            <div class="buttons-container">
+                <button type="submit" 
+                    form="editForm" 
+                    class="save-changes-button"
+                    [disabled]="!editForm.dirty">
+                        <mat-icon class="icon">check circle</mat-icon>
+                </button>
+            </div>
+        </div>
+        <div class="right-side">
+            <tabset class="member-tabset">
+                <tab heading="About {{member.knownAs}}">
+                    <div class="about-container">
+                        <form #editForm="ngForm" id="editForm" (ngSubmit)="updateMember()">
+                            <h4>Description</h4>
+                            <textarea [(ngModel)]="member.introduction" name="introduction" rows="6">
+                            </textarea>
+                            <h4>Looking For</h4>
+                            <textarea [(ngModel)]="member.lookingFor" name="lookingFor" rows="6">
+                            </textarea>
+                            <h4>Interests</h4>
+                            <textarea [(ngModel)]="member.interests" name="interests" rows="6">
+                            </textarea>
+                            <h4>Location details</h4>
+                            <div class="location-details-section">
+                                <div class="location-details-input">
+                                    <label for="city">City:</label>
+                                    <input type="text" name="city" [(ngModel)]="member.city">
+                                </div>
+                                <div class="location-details-input">
+                                    <label for="country">Country:</label>
+                                    <input type="text" name="country" [(ngModel)]="member.country">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </tab>
+                <tab heading="Edit Photos">
+                    <div class="edit-photos-container">
+                        <p>TODO</p>
+                    </div>
+                </tab>
+            </tabset>
+        </div>
+    </div>
+</div>
