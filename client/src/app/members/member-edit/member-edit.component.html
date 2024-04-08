@@ -32,11 +32,8 @@
                 </div>
             </div>
             <div class="buttons-container">
-                <button type="submit" 
-                    form="editForm" 
-                    class="save-changes-button"
-                    [disabled]="!editForm.dirty">
-                        <mat-icon class="icon">check circle</mat-icon>
+                <button type="submit" form="editForm" class="save-changes-button" [disabled]="!editForm.dirty">
+                    <mat-icon class="icon">check circle</mat-icon>
                 </button>
             </div>
         </div>
@@ -69,9 +66,7 @@
                     </div>
                 </tab>
                 <tab heading="Edit Photos">
-                    <div class="edit-photos-container">
-                        <p>TODO</p>
-                    </div>
+                    <app-photo-editor [member]="member"></app-photo-editor>
                 </tab>
             </tabset>
         </div>

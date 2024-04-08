@@ -19,6 +19,7 @@
     <div class="dropdown-list" clickOutside (clickOutside)="clickOutside()" *ngIf="(accountService.currentUser$ | async) as user">
         <a [className]="'dropdown-list-toggle ' + (showDropdownMenu ? 'highlighted' : '')"
             (click)="toggleDropdownMenu()">
+            <img src="{{user.photoUrl || './assets/user.png'}}" alt="user's profile photo" class="users-profile-photo">
             <div>Welcome {{user.username | titlecase}}</div>
             <mat-icon class="icon">keyboard_arrow_down</mat-icon>
         </a>
