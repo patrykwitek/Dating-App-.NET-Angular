@@ -1,0 +1,132 @@
+.photo-editor-container {
+    width: 60vw;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    margin-bottom: 2rem;
+
+    .single-photo-editor {
+        width: 150px;
+        display: flex;
+        flex-direction: column;
+
+        img {
+            width: 150px;
+            align-self: center;
+        }
+
+        .buttons-section {
+            width: 150px;
+            align-self: center;
+            display: flex;
+            justify-content: space-between;
+            padding-top: .5rem;
+
+            button {
+                background-color: transparent;
+                width: 48%;
+                transition: .2s;
+            }
+
+            .main-button {
+                border: 1px rgb(23, 44, 103) solid;
+                background-color: rgb(23, 44, 103);
+                color: white;
+
+                &:hover {
+                    background-color: transparent;
+                    color: rgb(23, 44, 103);
+                    cursor: pointer;
+                }
+            }
+
+            .main-photo {
+                border: 1px rgb(68, 79, 109) solid;
+                background-color: rgb(68, 79, 109);
+                color: white;
+
+                &:hover {
+                    border: 1px rgb(68, 79, 109) solid;
+                    background-color: rgb(68, 79, 109);
+                    color: white;
+                    cursor: not-allowed;
+                }
+            }
+
+            .main-photo-delete {
+                border: 1px rgb(234, 111, 111) solid !important;
+
+                .icon {
+                    position: relative;
+                    top: 2px;
+                    color: rgb(234, 111, 111) !important;
+                }
+
+                &:hover {
+                    border: 1px rgb(234, 111, 111) solid !important;
+                    background-color: transparent !important;
+                    cursor: not-allowed;
+
+                    .icon {
+                        position: relative;
+                        top: 2px;
+                        color: rgb(234, 111, 111) !important;
+                    }
+                }
+            }
+
+            .delete-button {
+                border: 1px rgb(186, 0, 0) solid;
+
+                .icon {
+                    position: relative;
+                    top: 2px;
+                    color: rgb(186, 0, 0);
+                }
+
+                &:hover {
+                    background-color: rgb(186, 0, 0);
+
+                    .icon {
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.row {
+    color: black;
+
+    .col-md-3 {
+        .nv-file-over {
+            border: 3px dotted red !important;
+        }
+
+        .uploader {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: .5rem;
+            border: 1px gray solid;
+            border-radius: 10px;
+
+            .upload-icon {
+                align-self: center;
+                font-size: 50px;
+                width: 50px;
+                height: 50px;
+            }
+
+            .uploader-text {
+                align-self: center;
+            }
+        }
+
+        input[type=file] {
+            color: transparent;
+        }
+    }
+}
