@@ -1,12 +1,14 @@
 .edit-container {
-    width: 100%;
+    max-width: 100vw;
+    padding-left: 5rem;
+    padding-right: 5rem;
 
     .top-section {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        margin: 2rem 0;
         height: 50px;
+        margin-bottom: 1rem;
 
         .title-section {
             width: 50%;
@@ -16,10 +18,10 @@
             width: 50%;
 
             p {
-                border: 1px rgb(155, 192, 234) solid;
-                background-color: rgb(228, 239, 252);
+                border: 1px rgb(233, 199, 255) solid;
+                background-color: rgba(255, 255, 255, 0.2);
                 padding: 1rem 2rem;
-                color: rgb(43, 102, 169);
+                color: rgb(233, 199, 255);
             }
         }
     }
@@ -28,18 +30,18 @@
         display: flex;
         flex-wrap: wrap;
         gap: 2rem;
-        width: 100%;
+        max-width: 100vw;
 
         .left-side {
             width: 300px;
             height: fit-content;
-            border: 1px rgb(181, 181, 181) solid;
-            border-radius: 10px;
-            box-shadow: 0px 0px 8px -4px rgb(16, 50, 145);
+            border-radius: 15px;
+            box-shadow: 0px 0px 8px -3px black;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: .5rem;
+            padding: 1rem 1.5rem;
+            background-color: rgba(255, 255, 255, 0.2);
 
             img {
                 width: 100%;
@@ -50,6 +52,7 @@
                 display: flex;
                 flex-direction: column;
                 padding: .5rem .5rem;
+                color: black;
             }
 
             .buttons-container {
@@ -58,8 +61,8 @@
                 button {
                     width: 100%;
                     transition: .2s;
-                    border: 1px rgb(23, 44, 103) solid;
-                    background-color: rgb(23, 44, 103);
+                    border: 1px rgb(62, 18, 91) solid;
+                    background-color: rgb(62, 18, 91);
                     color: white;
 
                     .icon {
@@ -69,13 +72,14 @@
                         transition: .2s;
                     }
 
-                    &:disabled{
+                    &:disabled {
                         opacity: .8;
                     }
 
                     &:enabled:hover {
-                        background-color: transparent;
-                        color: rgb(23, 44, 103);
+                        background-color: white;
+                        color: rgb(62, 18, 91);
+                        border-color: white;
 
                         .icon {
                             top: 3px;
@@ -88,36 +92,40 @@
         }
 
         .right-side {
-            width: 50vw;
+            width: 60vw;
 
             .about-container {
                 color: black;
                 display: flex;
                 flex-direction: column;
 
-                form{
+                form {
                     width: 100%;
 
-                    textarea{
+                    textarea {
                         width: 100%;
-                        border: 1px rgb(175, 175, 175) solid;
-                        border-radius: 10px;
                         padding-bottom: 10px;
                         margin: .5rem 0;
+                        background-color: rgba(255, 255, 255, 0.1);
+                        border: none;
+
+                        &:focus {
+                            outline: none;
+                        }
                     }
 
-                    .location-details-section{
+                    .location-details-section {
                         width: 50vw;
                         display: flex;
                         flex-wrap: wrap;
                         gap: 1rem;
 
-                        .location-details-input{
-                            label{
+                        .location-details-input {
+                            label {
                                 margin-right: .5rem;
                             }
 
-                            input{
+                            input {
                                 width: 20vw;
                             }
                         }

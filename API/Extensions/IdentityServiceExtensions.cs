@@ -18,7 +18,8 @@ namespace API.Extensions
                         ValidateIssuer = false,
                         ValidateAudience = false
                     };
-                });
+                })
+                .AddCertificate();
             
             return services;
         }

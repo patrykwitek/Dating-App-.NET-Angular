@@ -2,6 +2,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    min-height: 70vh;
 
     .welcome-page {
         display: flex;
@@ -9,8 +10,57 @@
         justify-content: center;
         gap: 10px;
 
+        @keyframes animate {
+            0% {
+                background-position: 0 0;
+                background-image: linear-gradient(to right, rgb(62, 18, 91), rgb(62, 18, 91), rgb(62, 18, 91));
+            }
+
+            1% {
+                background-position: 0 0;
+                background-image: linear-gradient(to right, rgb(62, 18, 91), rgb(62, 18, 91), rgb(62, 18, 91));
+            }
+
+            2% {
+                background-position: -100% 0;
+                background-image: linear-gradient(to right, rgb(141, 60, 138), rgb(62, 18, 91), rgb(62, 18, 91));
+            }
+
+            3% {
+                background-position: 100% 0;
+            }
+
+            20% {
+                background-position: 200% 0;
+            }
+
+            98% {
+                background-position: 200% 0;
+                background-image: linear-gradient(to right, rgb(141, 60, 138), rgb(62, 18, 91), rgb(62, 18, 91));
+            }
+
+            99% {
+                background-position: 200% 0;
+                background-image: linear-gradient(to right, rgb(62, 18, 91), rgb(62, 18, 91), rgb(62, 18, 91));
+            }
+
+            100% {
+                background-position: 0 0;
+            }
+        }
+
         h1 {
             align-self: center;
+            margin-bottom: 1rem;
+            background-image: linear-gradient(to right, rgb(62, 18, 91), rgb(62, 18, 91), rgb(62, 18, 91));
+            background-clip: text;
+            color: transparent;
+            background-size: 400% 400%;
+
+            &:hover {
+                animation: animate 10s ease 1;
+                cursor: pointer;
+            }
         }
 
         .buttons-container {
@@ -20,18 +70,20 @@
             justify-content: center;
             gap: 1rem;
 
-            button{
+            button {
                 background-color: transparent;
-                border: 1px rgb(16, 80, 154) solid;
+                border: 1px white solid;
                 padding: 8px 10px;
                 font-size: 1rem;
-                color: rgb(16, 80, 154);
+                color: white;
                 transition: .2s;
                 width: 20vw;
+                box-shadow: 0px 0px 10px -4px rgb(62, 18, 91);
 
-                &:hover{
-                    background-color: rgb(16, 80, 154);
-                    color: white;
+                &:hover {
+                    border-color: white;
+                    background-color: white;
+                    color: rgb(62, 18, 91);
                 }
             }
         }
