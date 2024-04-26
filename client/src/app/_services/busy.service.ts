@@ -16,7 +16,7 @@ export class BusyService {
     this.spinnerService.show(undefined, {
       type: 'line-spin-fade',
       bdColor: 'rbga(255,255,255,0)',
-      color: 'rgb(23, 44, 103)'
+      color: 'rgb(62, 18, 91)'
     })
   }
 

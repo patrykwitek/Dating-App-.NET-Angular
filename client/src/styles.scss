@@ -16,7 +16,7 @@
 
         a {
             border: 0 !important;
-            color: #333333 !important;
+            color: white !important;
 
             i {
                 color: #404040;
@@ -24,35 +24,25 @@
         }
 
         &.active {
-            border-bottom: 4px solid rgb(23, 44, 103);
-
+            border-bottom: 1px rgba(255, 255, 255, 0.2) solid !important;
+            
             a {
                 border: 0 !important;
-                color: #333333;
-
-                i {
-                    color: #404040;
-                }
+                color: rgb(233, 199, 255) !important;
+                background-color: rgba(255, 255, 255, 0.2) !important;
             }
         }
-
+        
         &.open {
             a {
                 background: none !important;
                 color: #333333;
-
-                i {
-                    color: #a6a6a6;
-                }
             }
         }
 
         &:hover {
-            border-bottom: 4px solid rgb(23, 44, 103);
-
             a {
                 border: 0;
-                background: none !important;
                 color: #333333;
 
                 i {
@@ -66,9 +56,8 @@
 .member-tabset {
     .tab-content {
         margin-top: -3px;
-        background-color: #fff;
+        background-color: rgba(255, 255, 255, 0.2);
         border: 0;
-        border-top: 1px solid #eee;
         padding: 15px 0;
     }
 }

@@ -29,25 +29,25 @@
             }
 
             .main-button {
-                border: 1px rgb(23, 44, 103) solid;
-                background-color: rgb(23, 44, 103);
+                border: 1px rgb(62, 18, 91) solid;
+                background-color: rgb(62, 18, 91);
                 color: white;
 
                 &:hover {
-                    background-color: transparent;
-                    color: rgb(23, 44, 103);
+                    background-color: white;
+                    color: rgb(62, 18, 91);
                     cursor: pointer;
                 }
             }
 
             .main-photo {
-                border: 1px rgb(68, 79, 109) solid;
-                background-color: rgb(68, 79, 109);
+                border: 1px rgb(84, 49, 107) solid;
+                background-color: rgb(84, 49, 107);
                 color: white;
 
                 &:hover {
-                    border: 1px rgb(68, 79, 109) solid;
-                    background-color: rgb(68, 79, 109);
+                    border: 1px rgb(84, 49, 107) solid;
+                    background-color: rgb(84, 49, 107);
                     color: white;
                     cursor: not-allowed;
                 }

@@ -1,11 +1,11 @@
 .member-container {
-    border: 1px rgb(201, 201, 201) solid;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     box-shadow: 0px 0px 10px -6px black;
+    background-color: rgba(255, 255, 255, 0.8);
 
     .photo-container {
         overflow: hidden;
@@ -41,14 +41,14 @@
                 display: inline;
 
                 button{
-                    background-color: rgb(23, 44, 103);
+                    background-color: rgb(62, 18, 91);
                     border: none;
                     border-radius: 7px;
                     transition: .2s;
                     height: 2.5rem;
                     width: 2.5rem;
                     text-align: center;
-                    box-shadow: 0px 0px 9px -2px rgb(23, 44, 103);
+                    box-shadow: 0px 0px 9px -2px black;
 
                     .btn-icon{
                         color: white;
@@ -61,7 +61,7 @@
                         background-color: rgb(255, 255, 255);
 
                         .btn-icon{
-                            color: rgb(23, 44, 103);
+                            color: rgb(62, 18, 91);
                         }
                     }
                 }
@@ -83,7 +83,7 @@
         }
 
         p {
-            color: gray;
+            color: rgb(44, 44, 44);
         }
     }
 
