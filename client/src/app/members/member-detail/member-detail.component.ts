@@ -6,6 +6,7 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { Member } from 'src/app/_models/member';
 import { MembersService } from 'src/app/_services/members.service';
 import { GalleryItem, GalleryModule, ImageItem } from 'ng-gallery';
+import { TimeagoModule } from 'ngx-timeago';
 
 @Component({
   selector: 'app-member-detail',
@@ -16,7 +17,8 @@ import { GalleryItem, GalleryModule, ImageItem } from 'ng-gallery';
     CommonModule,
     TabsModule,
     MatIconModule,
-    GalleryModule
+    GalleryModule,
+    TimeagoModule
   ]
 })
 export class MemberDetailComponent implements OnInit {

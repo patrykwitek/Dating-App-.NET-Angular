@@ -1,7 +1,145 @@
-.members-container{
-    margin: 0 auto;
-    width: 90%;
+.action-buttons-container {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+    gap: 1rem;
+
+    * {
+        align-self: center;
+    }
+
+    h2 {
+        color: rgb(62, 18, 91);
+    }
+
+    form {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+
+        .single-form-property {
+            label {
+                margin-right: .3rem;
+                color: white;
+            }
+
+            input {
+                font-size: .8rem;
+                width: 3rem;
+                border: 1px transparent solid;
+                box-shadow: 0px 0px 6px -2px black;
+                color: rgb(62, 18, 91);
+
+                &:focus {
+                    outline: none;
+                }
+            }
+
+            select {
+                font-size: .9rem;
+                border: 1px transparent solid;
+                box-shadow: 0px 0px 6px -2px black;
+                color: rgb(62, 18, 91);
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+
+        button {
+            border: 1px white solid;
+            background-color: transparent;
+            color: white;
+            font-size: .7rem;
+            padding: .2rem 1rem;
+            transition: .2s;
+            box-shadow: 0px 0px 6px -2px black;
+
+            &:hover {
+                background-color: white;
+                color: rgb(62, 18, 91);
+            }
+        }
+
+        .filter-container {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            bottom: .75rem;
+            margin-left: 4rem;
+
+            * {
+                align-self: center;
+            }
+
+            p {
+                color: rgb(233, 199, 255);
+                margin: 0;
+                margin-bottom: .2rem;
+                font-size: .8rem;
+            }
+
+            .buttons-container {
+                button {
+                    background-color: transparent;
+                    color: white;
+                    font-size: .7rem;
+                    padding: .2rem 1rem;
+                    transition: .2s;
+                    box-shadow: none;
+                    border: 1px rgb(233, 199, 255) solid;
+                    color: rgb(233, 199, 255);
+
+                    &:hover {
+                        background-color: rgba(233, 199, 255, 0.5);
+                        color: rgb(62, 18, 91);
+                    }
+                }
+
+                .active {
+                    background-color: rgba(233, 199, 255, 0.9) !important;
+                    color: rgb(62, 18, 91) !important;
+                }
+            }
+        }
+    }
+}
+
+.members-container {
+    width: 100vw;
     display: flex;
     flex-wrap: wrap;
     gap: 1.5rem;
+    justify-content: center;
+    padding: 0 2rem;
+}
+
+.pagination-container {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+
+    .pagination-styles::ng-deep .page-item.active .page-link {
+        color: rgb(62, 18, 91);
+        background-color: rgba(255, 255, 255, 0.5) !important;
+
+        &:hover {
+            color: rgb(62, 18, 91);
+            background-color: rgba(255, 255, 255, 0.5) !important;
+        }
+    }
+
+    .pagination-styles::ng-deep .page-item .page-link {
+        color: #FFFFFF;
+        background-color: transparent !important;
+        border-color: rgba(255, 255, 255, 0.5);
+
+        &:hover {
+            color: rgb(62, 18, 91);
+            background-color: rgba(255, 255, 255, 0.2) !important;
+        }
+    }
 }

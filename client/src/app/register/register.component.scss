@@ -65,13 +65,13 @@
         }
 
         .cancel-button {
-            border: 1px rgb(171, 0, 0) solid;
+            border: 1px rgb(217, 160, 255) solid;
             background-color: transparent;
-            color: rgb(171, 0, 0);
+            color: rgb(217, 160, 255);
             transition: .2s;
 
             &:hover {
-                background-color: rgb(171, 0, 0);
+                background-color: rgb(217, 160, 255);
                 color: white;
             }
         }

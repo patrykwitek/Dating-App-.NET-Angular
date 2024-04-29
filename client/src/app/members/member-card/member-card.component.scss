@@ -6,6 +6,7 @@
     justify-content: center;
     box-shadow: 0px 0px 10px -6px black;
     background-color: rgba(255, 255, 255, 0.8);
+    transition: .2s;
 
     .photo-container {
         overflow: hidden;
@@ -19,6 +20,7 @@
             width: 10rem;
             transform: scale(1, 1);
             transition: ease-out .2s;
+            border-radius: 5px 5px 0 0;
         }
 
         ul{
@@ -41,7 +43,7 @@
                 display: inline;
 
                 button{
-                    background-color: rgb(62, 18, 91);
+                    background-color: white;
                     border: none;
                     border-radius: 7px;
                     transition: .2s;
@@ -51,17 +53,17 @@
                     box-shadow: 0px 0px 9px -2px black;
 
                     .btn-icon{
-                        color: white;
+                        color: rgb(141, 60, 138);
                         position: relative;
                         top: 6px;
                         font-size: 1.1rem;
                     }
 
                     &:hover{
-                        background-color: rgb(255, 255, 255);
+                        background-color: rgb(141, 60, 138);
 
                         .btn-icon{
-                            color: rgb(62, 18, 91);
+                            color: white;
                         }
                     }
                 }
@@ -88,11 +90,13 @@
     }
 
     &:hover {
+        background-color: rgba(255, 255, 255, 0.9);
+
         .photo-container {
             img {
-                transform: scale(1.1, 1.1);
+                transform: scale(1.05, 1.05);
                 transition: ease-out .2s;
-                opacity: .5;
+                opacity: .7;
             }
 
             ul{
