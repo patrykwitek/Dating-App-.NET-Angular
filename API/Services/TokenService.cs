@@ -17,9 +17,11 @@ namespace API.Services
 
         public string CreateToken(AppUser user)
         {
+            // note: token jwt posiada swoje pola w body, które posiadają odpowiednie nazwy znajdujące się w JwtRegisteredClaimNames
             List<Claim> claims = new List<Claim>
             {
-                new Claim(JwtRegisteredClaimNames.NameId, user.UserName)
+                new Claim(JwtRegisteredClaimNames.NameId, user.Id.ToString()),
+                new Claim(JwtRegisteredClaimNames.UniqueName, user.UserName)
             };
 
             SigningCredentials creds = new SigningCredentials(_key, SecurityAlgorithms.HmacSha512Signature);

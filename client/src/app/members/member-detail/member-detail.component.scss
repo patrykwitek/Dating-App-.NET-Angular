@@ -25,7 +25,7 @@
             display: flex;
             flex-direction: column;
             padding: .5rem .5rem;
-            color: black;
+            color: white;
         }
 
         .buttons-container {
@@ -54,8 +54,7 @@
 
                 &:hover {
                     .icon {
-                        top: 2px;
-                        font-size: 25px;
+                        transform: scale(120%);
                     }
                 }
             }
@@ -74,8 +73,7 @@
 
                 &:hover {
                     .icon {
-                        top: 3px;
-                        font-size: 24px;
+                        transform: scale(120%);
                     }
                 }
             }
@@ -86,9 +84,10 @@
         width: 60vw;
 
         .about-container{
-            color: black;
+            color: rgba(255, 255, 255, 0.9);
             display: flex;
             flex-direction: column;
+            padding: 0 2rem;
 
             p{
                 width: 500px;
@@ -96,9 +95,10 @@
         }
 
         .interests-container{
-            color: black;
+            color: rgba(255, 255, 255, 0.9);
             display: flex;
             flex-direction: column;
+            padding: 0 2rem;
 
             p{
                 width: 500px;
@@ -106,7 +106,7 @@
         }
 
         .photos-container{
-            color: black;
+            color: rgba(255, 255, 255, 0.9);
             display: flex;
             flex-direction: column;
 
@@ -116,9 +116,10 @@
         }
 
         .messages-container{
-            color: black;
+            color: rgba(255, 255, 255, 0.9);
             display: flex;
             flex-direction: column;
+            padding: 0 2rem;
 
             p{
                 width: 500px;

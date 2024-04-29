@@ -20,20 +20,20 @@
         <a [className]="'dropdown-list-toggle ' + (showDropdownMenu ? 'highlighted' : '')"
             (click)="toggleDropdownMenu()">
             <img src="{{user.photoUrl || './assets/user.png'}}" alt="user's profile photo" class="users-profile-photo">
-            <div>Welcome {{user.username | titlecase}}</div>
+            <div>Welcome {{user.knownAs | titlecase}}</div>
             <mat-icon class="icon">keyboard_arrow_down</mat-icon>
         </a>
         <div [className]="'dropdown-list-menu ' + (showDropdownMenu ? 'active' : 'inactive')">
             <a class="dropdown-list-item" title="edit profile" routerLink="/member/edit">
-                <mat-icon>edit</mat-icon>
+                <mat-icon class="icon">edit</mat-icon>
                 <div>Edit Profile</div>
             </a>
             <a class="dropdown-list-item" title="settings">
-                <mat-icon>settings</mat-icon>
+                <mat-icon class="icon">settings</mat-icon>
                 <div>Settings</div>
             </a>
             <a class="dropdown-list-item" title="logout" (click)="logout()">
-                <mat-icon>keyboard_return</mat-icon>
+                <mat-icon class="icon">keyboard_return</mat-icon>
                 <div>Logout</div>
             </a>
         </div>
