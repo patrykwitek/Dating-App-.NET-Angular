@@ -1,18 +1,26 @@
 <ng-container>
     <div class="errors-testing-page">
-        <div class="buttons-container">
-            <button (click)="get500Error()">Test 500 Error</button>
-            <button (click)="get400Error()">Test 400 Error</button>
-            <button (click)="get401Error()">Test 401 Error</button>
-            <button (click)="get404Error()">Test 404 Error</button>
-            <button (click)="get400ValidationError()">Test 400 Validation Error</button>
-        </div>
-        <div *ngIf="validationErrors.length != 0">
-            <ul>
-                <li *ngFor="let error of validationErrors">
-                    {{error}}
-                </li>
-            </ul>
+        <div class="content-container">
+            <div class="info-container">
+                <h2>Errors</h2>
+                <p>This is a secret page to test error handling in the application</p>
+            </div>
+            <div class="buttons-container">
+                <button (click)="get500Error()">Test 500 Error</button>
+                <button (click)="get400Error()">Test 400 Error</button>
+                <button (click)="get401Error()">Test 401 Error</button>
+                <button (click)="get404Error()">Test 404 Error</button>
+                <button (click)="get400ValidationError()">Test 400 Validation Error</button>
+            </div>
+            <div class="errors-container" *ngIf="validationErrors.length != 0">
+                <div>
+                    <ul>
+                        <li *ngFor="let error of validationErrors">
+                            {{error}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 </ng-container>

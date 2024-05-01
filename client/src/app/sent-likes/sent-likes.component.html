@@ -1,0 +1,30 @@
+<div class="sent-likes-container">
+    <div class="buttons-container">
+        <div name="predicate">
+            <button btnRadio="liked" [(ngModel)]="predicate" (click)="loadLikes()">
+                Sent likes
+            </button>
+            <button btnRadio="likedBy" [(ngModel)]="predicate" (click)="loadLikes()">
+                Received likes
+            </button>
+        </div>
+    </div>
+    <div class="users-container">
+        <app-member-card *ngFor="let member of members" [member]="member"></app-member-card>
+    </div>
+    <div *ngIf="pagination" class="pagination-container">
+        <pagination 
+            [boundaryLinks]="true" 
+            [totalItems]="pagination.totalItems" 
+            [itemsPerPage]="pagination.itemsPerPage"
+            [maxSize]="10"
+            [(ngModel)]="pagination.currentPage"
+            (pageChanged)="pageChanged($event)"
+            previousText="&lsaquo;" 
+            nextText="&rsaquo;" 
+            firstText="&laquo;"
+            lastText="&raquo;"
+            class="pagination-styles">
+        </pagination>
+    </div>
+</div>

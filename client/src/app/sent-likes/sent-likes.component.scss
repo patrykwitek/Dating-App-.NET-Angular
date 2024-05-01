@@ -1,0 +1,69 @@
+.sent-likes-container {
+    max-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    * {
+        align-self: center;
+    }
+
+    .buttons-container {
+        button {
+            background-color: transparent;
+            color: white;
+            font-size: .9rem;
+            padding: .2rem 1rem;
+            transition: .2s;
+            box-shadow: none;
+            border: 1px rgb(233, 199, 255) solid;
+            color: rgb(233, 199, 255);
+
+            &:hover {
+                background-color: rgba(233, 199, 255, 0.5);
+                color: rgb(62, 18, 91);
+            }
+        }
+
+        .active {
+            background-color: rgba(233, 199, 255, 0.9) !important;
+            color: rgb(62, 18, 91) !important;
+        }
+    }
+
+    .users-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        max-width: 100vw;
+        gap: 1.5rem;
+    }
+
+    .pagination-container {
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        margin-top: 2rem;
+
+        .pagination-styles::ng-deep .page-item.active .page-link {
+            color: rgb(62, 18, 91);
+            background-color: rgba(255, 255, 255, 0.5) !important;
+
+            &:hover {
+                color: rgb(62, 18, 91);
+                background-color: rgba(255, 255, 255, 0.5) !important;
+            }
+        }
+
+        .pagination-styles::ng-deep .page-item .page-link {
+            color: #FFFFFF;
+            background-color: transparent !important;
+            border-color: rgba(255, 255, 255, 0.5);
+
+            &:hover {
+                color: rgb(62, 18, 91);
+                background-color: rgba(255, 255, 255, 0.2) !important;
+            }
+        }
+    }
+}
