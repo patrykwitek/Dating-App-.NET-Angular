@@ -6,15 +6,12 @@
                 <a class="nav-item-text" routerLink="/members" routerLinkActive="active">Matches</a>
             </li>
             <li class="nav-item">
-                <a class="nav-item-text" routerLink="/lists" routerLinkActive="active">Lists</a>
+                <a class="nav-item-text" routerLink="/sent-likes" routerLinkActive="active">Sent likes</a>
             </li>
             <li class="nav-item">
                 <a class="nav-item-text" routerLink="/messages" routerLinkActive="active">Messages</a>
             </li>
         </ng-container>
-        <li class="nav-item">
-            <a class="nav-item-text" routerLink="/errors-testing" routerLinkActive="active">Errors</a>
-        </li>
     </ul>
     <div class="dropdown-list" clickOutside (clickOutside)="clickOutside()" *ngIf="(accountService.currentUser$ | async) as user">
         <a [className]="'dropdown-list-toggle ' + (showDropdownMenu ? 'highlighted' : '')"

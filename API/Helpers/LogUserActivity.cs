@@ -25,7 +25,7 @@ namespace API.Helpers
             var repository = resultContext.HttpContext.RequestServices.GetRequiredService<IUserRepository>();
 
             // note: używanie tutaj metody GetUserByIdAsync zamiast GetUserByUsernameAsync skróca zapytanie wysyłane do bazy, ponieważ GetUserByUsernameAsync uwzględnia też zdjęcia
-            var user = await repository.GetUserByIdAsync(int.Parse(userId));
+            var user = await repository.GetUserByIdAsync(userId);
             user.LastActive = DateTime.UtcNow;
 
             await repository.SaveAllAsync();
