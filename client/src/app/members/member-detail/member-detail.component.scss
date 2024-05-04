@@ -60,8 +60,8 @@
             }
 
             .message-button {
-                border: 1px rgb(23, 44, 103) solid;
-                background-color: rgb(23, 44, 103);
+                border: 1px rgb(62, 18, 91) solid;
+                background-color: rgb(62, 18, 91);
                 color: white;
                 
                 .icon {
@@ -84,6 +84,7 @@
         width: 60vw;
 
         .about-container{
+            min-height: 560px;
             color: rgba(255, 255, 255, 0.9);
             display: flex;
             flex-direction: column;
@@ -95,6 +96,7 @@
         }
 
         .interests-container{
+            min-height: 560px;
             color: rgba(255, 255, 255, 0.9);
             display: flex;
             flex-direction: column;
@@ -106,6 +108,7 @@
         }
 
         .photos-container{
+            min-height: 560px;
             color: rgba(255, 255, 255, 0.9);
             display: flex;
             flex-direction: column;
@@ -116,6 +119,7 @@
         }
 
         .messages-container{
+            min-height: 560px;
             color: rgba(255, 255, 255, 0.9);
             display: flex;
             flex-direction: column;
