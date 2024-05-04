@@ -1,4 +1,4 @@
-<div *ngIf="member" class="details-container">
+<div class="details-container">
     <div class="left-side">
         <img src="{{member.photoUrl || './assets/user.png'}}" alt="User's photo">
         <div class="info-container">
@@ -23,14 +23,14 @@
             <button class="like-button">
                 <mat-icon class="icon">favorite</mat-icon>
             </button>
-            <button class="message-button">
+            <button class="message-button" (click)="selectTab('Messages')">
                 <mat-icon class="icon">message</mat-icon>
             </button>
         </div>
     </div>
     <div class="right-side">
-        <tabset class="member-tabset">
-            <tab heading="About {{member.knownAs}}">
+        <tabset class="member-tabset" #memberTabs>
+            <tab heading="About {{member.knownAs}}" (selectTab)="onTabActivated($event)">
                 <div class="about-container">
                     <h4>Description</h4>
                     <p>{{member.introduction}}</p>
@@ -38,20 +38,20 @@
                     <p>{{member.lookingFor}}</p>
                 </div>
             </tab>
-            <tab heading="Interests">
+            <tab heading="Interests" (selectTab)="onTabActivated($event)">
                 <div class="interests-container">
                     <h4>Interests</h4>
                     <p>{{member.interests}}</p>
                 </div>
             </tab>
-            <tab heading="Photos" #photoTab="tab">
+            <tab heading="Photos" #photoTab="tab" (selectTab)="onTabActivated($event)">
                 <div class="photos-container">
                     <gallery *ngIf="photoTab.active" [items]="images" class="users-gallery"></gallery>
                 </div>
             </tab>
-            <tab heading="Messages">
+            <tab heading="Messages" (selectTab)="onTabActivated($event)">
                 <div class="messages-container">
-                    <p>TO-DO</p>
+                    <app-member-messages [username]="member.userName" [messages]="messages"></app-member-messages>
                 </div>
             </tab>
         </tabset>

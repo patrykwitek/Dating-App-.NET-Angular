@@ -1,0 +1,54 @@
+<div class="messaging-container">
+    <div class="messages-section">
+        <div class="no-messages" *ngIf="messages.length == 0">
+            <div class="no-messages-container">
+                <p>
+                    No messages
+                </p>
+                <p>
+                    Say hi to {{username | titlecase}}
+                </p>
+            </div>
+        </div>
+        <ul *ngIf="messages.length > 0">
+            <li *ngFor="let message of messages">
+                <div [ngClass]="currentUser && message.senderUsername === currentUser.username ? 'our-message' : 'their-message'">
+                    <img *ngIf="currentUser && message.senderUsername !== currentUser.username" src="{{message.senderPhotoUrl || './assets/user.png'}}" alt="Profile photo">
+                    <div class="message-content">
+                        <p>
+                            {{message.content}}
+                        </p>
+                        <div class="message-info">
+                            <small>
+                                <span>
+                                    {{message.messageSent + 'Z' | timeago}}
+                                </span>
+                                <span *ngIf="!message.dateRead && message.senderUsername !== username">
+                                    (unread)
+                                </span>
+                                <span *ngIf="message.dateRead && message.senderUsername !== username">
+                                    (read {{message.dateRead + 'Z' | timeago}})
+                                </span>
+                            </small>
+                        </div>
+                    </div>
+                    <img *ngIf="currentUser && message.senderUsername === currentUser.username" src="{{message.senderPhotoUrl || './assets/user.png'}}" alt="Profile photo">
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="send-message-container">
+        <form #messageForm="ngForm" (ngSubmit)="sendMessage()" autocomplete="off">
+            <input 
+                name="messageContent" 
+                required 
+                [(ngModel)]="messageContent"
+                type="text" 
+                placeholder="Send message">
+            <button type="submit" [disabled]="!messageForm.valid">
+                Send
+                <mat-icon class="icon">send</mat-icon>
+            </button>
+        </form>
+    </div>
+</div>

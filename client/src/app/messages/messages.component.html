@@ -1,1 +1,82 @@
-<p>messages works!</p>
+<div class="messages-container">
+    <div class="buttons-container" name="container">
+        <button
+            btnRadio="Unread"
+            [(ngModel)]="container"
+            (click)="loadMessages()">
+                <mat-icon class="icon">visibility</mat-icon>
+                Unread
+        </button>
+        <button
+            btnRadio="Inbox"
+            [(ngModel)]="container"
+            (click)="loadMessages()">
+                <mat-icon class="icon">drafts</mat-icon>
+                Inbox
+        </button>
+        <button
+            btnRadio="Outbox"
+            [(ngModel)]="container"
+            (click)="loadMessages()">
+                <mat-icon class="icon">send</mat-icon>
+                Outbox
+        </button>
+    </div>
+    <div class="no-messages-container" *ngIf="!messages || messages.length === 0">
+        <h3>No messages</h3>
+    </div>
+    <div class="users-messages-container" *ngIf="!loading && messages && messages.length > 0">
+        <table>
+            <thead>
+                <tr>
+                    <th class="table-messages">Message</th>
+                    <th class="table-from-to">{{container === 'Outbox' ? 'From' : 'To'}}</th>
+                    <th class="table-sent">{{container === 'Outbox' ? 'Sent' : 'Received'}}</th>
+                    <th class="table-actions"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr 
+                    class="message-row"
+                    [hidden]="loading"
+                    *ngFor="let message of messages" 
+                    routerLink="{{container === 'Outbox' ? '/members/' + message.recipientUsername : '/members/' + message.senderUsername}}"
+                    [queryParams]="{tab: 'Messages'}">
+                        <td class="table-messages">{{message.content}}</td>
+                        <td class="table-from-to">
+                            <div class="user" *ngIf="container === 'Outbox'">
+                                <img src="{{message.recipientPhotoUrl || './assets/user.png'}}" alt="Recipient profile photo">
+                                <strong>{{message.recipientUsername | titlecase}}</strong>
+                            </div>
+                            <div class="user" *ngIf="container !== 'Outbox'">
+                                <img src="{{message.senderPhotoUrl || './assets/user.png'}}" alt="Recipient profile photo">
+                                <strong>{{message.senderUsername | titlecase}}</strong>
+                            </div>
+                        </td>
+                        <td class="table-sent">{{message.messageSent | timeago}}</td>
+                        <td class="table-actions">
+                            <!-- stopPropagation zatrzymuje wcześniejsze click na row i wstrzumuje akcje przeniesienia na stronę Messages -->
+                            <button title="Remove message" (click)="$event.stopPropagation()" (click)="deleteMessage(message.id)">
+                                <mat-icon class="icon">delete</mat-icon>
+                            </button>
+                        </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="!loading && pagination && messages && messages.length > 0" class="pagination-container">
+        <pagination 
+            [boundaryLinks]="true" 
+            [totalItems]="pagination.totalItems" 
+            [itemsPerPage]="pagination.itemsPerPage"
+            [maxSize]="10"
+            [(ngModel)]="pagination.currentPage"
+            (pageChanged)="pageChanged($event)"
+            previousText="&lsaquo;" 
+            nextText="&rsaquo;" 
+            firstText="&laquo;"
+            lastText="&raquo;"
+            class="pagination-styles">
+        </pagination>
+    </div>
+</div>
