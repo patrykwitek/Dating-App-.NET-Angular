@@ -1,0 +1,25 @@
+<div class="user-management-container">
+    <table>
+        <thead>
+            <tr>
+                <th class="table-username">Username</th>
+                <th class="table-roles">Active roles</th>
+                <th class="table-actions"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users" class="single-row">
+                <td>{{user.username}}</td>
+                <td>{{user.roles}}</td>
+                <td>
+                    <button (click)="openRolesModal(user)">
+                        <div>
+                            <mat-icon class="icon">edit</mat-icon>
+                            Edit roles
+                        </div>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

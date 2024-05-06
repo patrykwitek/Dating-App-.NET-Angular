@@ -1,0 +1,64 @@
+.user-management-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    table {
+        width: 95%;
+        margin: .5rem 2rem;
+
+        th {
+            padding-bottom: .5rem;
+        }
+
+        .table-username {
+            width: 40%;
+        }
+
+        .table-roles {
+            width: 40%;
+        }
+
+        .table-actions {
+            width: 20%;
+        }
+
+        .single-row {
+            transition: .2s;
+
+            button {
+                background-color: transparent;
+                border-radius: .4rem;
+                border: none;
+                color: rgb(62, 18, 91);
+                transition: .2s;
+
+                div {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    align-items: center;
+
+                    .icon {
+                        scale: 90%;
+                        margin-right: .5rem;
+                    }
+                }
+
+                &:hover {
+                    color: white;
+
+                    div {
+                        .icon {
+                            scale: 110%;
+                        }
+                    }
+                }
+            }
+
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+        }
+    }
+}
