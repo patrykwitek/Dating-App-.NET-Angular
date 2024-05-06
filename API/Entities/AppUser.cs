@@ -1,13 +1,15 @@
 ﻿using API.Extensions;
+using Microsoft.AspNetCore.Identity;
 
 namespace API.Entities;
 
-public class AppUser
+public class AppUser : IdentityUser<int> // note: oznaczając int sprawiamy, że id będzie intem, domyślnie jest stringiem
 {
-    public int Id { get; set; }
-    public string UserName { get; set; }
-    public byte[] PasswordHash { get; set; }
-    public byte[] PasswordSalt { get; set; }
+    // note: wraz z implementacją IdentityUser nie musimy już używać tych pól, znajdują się one w IdentityUser
+    // public int Id { get; set; }
+    // public string UserName { get; set; }
+    // public byte[] PasswordHash { get; set; }
+    // public byte[] PasswordSalt { get; set; }
     public DateTime DateOfBirth { get; set; }
     public string KnownAs { get; set; }
     public DateTime Created { get; set; } = DateTime.UtcNow;
@@ -23,6 +25,7 @@ public class AppUser
     public List<UserLike> LikedUsers { get; set; }
     public List<Message> MessagesSent { get; set; }
     public List<Message> MessagesReceived { get; set; }
+    public ICollection<AppUserRole> UserRoles { get; set; }
 
     // note: starsza wersja bez Extension
     // public int GetAge()

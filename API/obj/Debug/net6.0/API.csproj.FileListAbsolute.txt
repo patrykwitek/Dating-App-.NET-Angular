@@ -75,3 +75,4 @@ C:\Users\XPS\Desktop\DatingApp\API\bin\Debug\net6.0\AutoMapper.Extensions.Micros
 C:\Users\XPS\Desktop\DatingApp\API\bin\Debug\net6.0\CloudinaryDotNet.dll
 C:\Users\XPS\Desktop\DatingApp\API\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\XPS\Desktop\DatingApp\API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.Certificate.dll
+C:\Users\XPS\Desktop\DatingApp\API\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll

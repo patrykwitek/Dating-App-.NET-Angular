@@ -15,7 +15,7 @@ export class AccountService {
 
   constructor(private http: HttpClient) { }
 
-  login(model: any) {
+  public login(model: any) {
     return this.http.post<User>(this.baseUrl + 'account/login', model).pipe(
       map((response: User) => {
         const user = response;
@@ -27,23 +27,38 @@ export class AccountService {
     )
   }
 
-  register(model: any) {
+  public register(model: any) {
     return this.http.post<User>(this.baseUrl + 'account/register', model).pipe(
       map(user => {
-        if(user){
+        if (user) {
           this.setCurrentUser(user);
         }
       })
     );
   }
 
-  setCurrentUser(user: User) {
+  public setCurrentUser(user: User) {
+    user.roles = [];
+    const roles = this.getDecodedToken(user.token).role;
+
+    if (Array.isArray(roles)) {
+      // note: z tokena role może być tablicą jeżeli jest kilka ról, bądź stringiem, jeżeli jest jedna
+      user.roles = roles;
+    }
+    else {
+      user.roles.push(roles);
+    }
+
     localStorage.setItem('user', JSON.stringify(user));
     this.currentUserSource.next(user);
   }
 
-  logout() {
+  public logout() {
     localStorage.removeItem('user');
     this.currentUserSource.next(null);
+  }
+
+  private getDecodedToken(token: string) {
+    return JSON.parse(atob(token.split('.')[1]));
   }
 }
