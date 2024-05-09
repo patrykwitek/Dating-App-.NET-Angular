@@ -2,6 +2,7 @@ using API;
 using API.Data;
 using API.Entities;
 using API.Extensions;
+using API.SignalR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -18,12 +19,18 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 app.UseMiddleware<ExceptionMiddleware>();
 
-app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200"));
+app.UseCors(builder => builder
+    .AllowAnyHeader()
+    .AllowAnyMethod()
+    .AllowCredentials()
+    .WithOrigins("https://localhost:4200"));
 
 app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+app.MapHub<PresenceHub>("hubs/presence"); // note: endpoint dla klientów do SignalR
+app.MapHub<MessageHub>("hubs/message");
 
 using var scope = app.Services.CreateScope();
 var services = scope.ServiceProvider;
@@ -35,6 +42,7 @@ try
     var roleManager = services.GetRequiredService<RoleManager<AppRole>>();
 
     await context.Database.MigrateAsync();
+    await context.Database.ExecuteSqlRawAsync("DELETE FROM TABLE [Connections]");
     await Seed.SeedUsers(userManager, roleManager);
 
     // note: starsza wersja przed zaimplementowaniem Identity

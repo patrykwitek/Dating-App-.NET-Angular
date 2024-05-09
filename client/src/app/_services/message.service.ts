@@ -3,16 +3,69 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { getPaginatedResult, getPaginationHeaders } from './paginationHelper';
 import { Message } from '../_models/message';
+import { HubConnection, HubConnectionBuilder } from '@microsoft/signalr';
+import { User } from '../_models/user';
+import { BehaviorSubject, take } from 'rxjs';
+import { Group } from '../_models/group';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MessageService {
   baseUrl = environment.apiUrl;
+  hubUrl = environment.hubUrl;
+  private hubConnection?: HubConnection;
+  private messageThreadSource = new BehaviorSubject<Message[]>([]);
+  messageThread$ = this.messageThreadSource.asObservable();
 
   constructor(
     private http: HttpClient
   ) { }
+
+  public createHubConnection(user: User, otherUsername: string) {
+    this.hubConnection = new HubConnectionBuilder()
+      .withUrl(this.hubUrl + 'message?user=' + otherUsername, {
+        accessTokenFactory: () => user.token
+      })
+      .withAutomaticReconnect()
+      .build();
+
+    this.hubConnection.start().catch(error => console.error(error));
+
+    this.hubConnection.on("ReceiveMessageThread", messages => {
+      this.messageThreadSource.next(messages);
+    });
+
+    this.hubConnection.on("UpdatedGroup", (group: Group) => {
+      if (group.connections.some(connection => connection.username === otherUsername)) {
+        this.messageThread$.pipe(take(1)).subscribe({
+          next: messages => {
+            messages.forEach(message => {
+              if (!message.dateRead) {
+                message.dateRead = new Date(Date.now());
+              }
+            });
+
+            this.messageThreadSource.next([...messages]);
+          }
+        });
+      }
+    });
+
+    this.hubConnection.on("NewMessage", message => {
+      this.messageThread$.pipe(take(1)).subscribe({
+        next: messages => {
+          this.messageThreadSource.next([...messages, message]);
+        }
+      });
+    });
+  }
+
+  public stopHubConnection() {
+    if (this.hubConnection) {
+      this.hubConnection.stop();
+    }
+  }
 
   public getMessages(pageNumber: number, pageSize: number, container: string) {
     let params = getPaginationHeaders(pageNumber, pageSize);
@@ -26,8 +79,12 @@ export class MessageService {
     return this.http.get<Message[]>(this.baseUrl + 'messages/thread/' + username);
   }
 
-  public sendMessage(username: string, content: string) {
-    return this.http.post<Message>(this.baseUrl + 'messages', {recipientUsername: username, content: content});
+  public async sendMessage(username: string, content: string) {
+    // note: starsza wersja bez SignalR
+    // return this.http.post<Message>(this.baseUrl + 'messages', { recipientUsername: username, content: content });
+
+    return this.hubConnection?.invoke('SendMessage', { recipientUsername: username, content: content })
+      .catch(error => console.error(error));
   }
 
   public deleteMessage(id: number) {
