@@ -24,9 +24,11 @@ import { MessageService } from 'src/app/_services/message.service';
 export class MemberMessagesComponent implements OnInit {
   @ViewChild('messageForm') messageForm?: NgForm;
   @Input() username?: string;
-  @Input() messages: Message[] = [];
+  // note: starsza wersja bez SignalR
+  // @Input() messages: Message[] = [];
   currentUser: User | undefined;
   messageContent: string = '';
+  messages?: Message[];
 
   constructor(
     private messageService: MessageService,
@@ -48,11 +50,45 @@ export class MemberMessagesComponent implements OnInit {
       return;
     }
 
-    this.messageService.sendMessage(this.username, this.messageContent).subscribe({
-      next: message => {
-        this.messages.push(message);
-        this.messageForm?.reset();
+    // note: starsza wersja bez SignalR
+    // this.messageService.sendMessage(this.username, this.messageContent).subscribe({
+    //   next: message => {
+    //     this.messages.push(message);
+    //     this.messageForm?.reset();
+    //   }
+    // });
+
+    // note: przy Promise jest then, przy Observable subscribe
+    this.messageService.sendMessage(this.username, this.messageContent).then(() => {
+      this.messageForm?.reset();
+    });
+  }
+
+  public areNoMessages(): boolean {
+    let noMessages: boolean = false;
+
+    this.messageService.messageThread$.pipe(take(1)).subscribe({
+      next: messages => {
+        if (messages.length === 0) {
+          noMessages = true;
+        }
       }
     });
+
+    return noMessages;
+  }
+
+  public getMessages(): Message[] {
+    let messages: Message[] = [];
+
+    this.messageService.messageThread$.pipe(take(1)).subscribe({
+      next: messagesResponse => {
+        if (messagesResponse) {
+          messages = messagesResponse;
+        }
+      }
+    });
+
+    return messages;
   }
 }

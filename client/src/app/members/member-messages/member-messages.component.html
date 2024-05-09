@@ -1,6 +1,6 @@
 <div class="messaging-container">
     <div class="messages-section">
-        <div class="no-messages" *ngIf="messages.length == 0">
+        <div class="no-messages" *ngIf="areNoMessages()">
             <div class="no-messages-container">
                 <p>
                     No messages
@@ -10,8 +10,8 @@
                 </p>
             </div>
         </div>
-        <ul *ngIf="messages.length > 0">
-            <li *ngFor="let message of messages">
+        <ul *ngIf="!areNoMessages()">
+            <li *ngFor="let message of getMessages()">
                 <div [ngClass]="currentUser && message.senderUsername === currentUser.username ? 'our-message' : 'their-message'">
                     <img *ngIf="currentUser && message.senderUsername !== currentUser.username" src="{{message.senderPhotoUrl || './assets/user.png'}}" alt="Profile photo">
                     <div class="message-content">
@@ -21,13 +21,13 @@
                         <div class="message-info">
                             <small>
                                 <span>
-                                    {{message.messageSent + 'Z' | timeago}}
+                                    {{message.messageSent | timeago}}
                                 </span>
                                 <span *ngIf="!message.dateRead && message.senderUsername !== username">
                                     (unread)
                                 </span>
                                 <span *ngIf="message.dateRead && message.senderUsername !== username">
-                                    (read {{message.dateRead + 'Z' | timeago}})
+                                    (read {{message.dateRead | timeago}})
                                 </span>
                             </small>
                         </div>

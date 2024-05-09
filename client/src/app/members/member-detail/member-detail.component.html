@@ -1,6 +1,10 @@
 <div class="details-container">
     <div class="left-side">
         <img src="{{member.photoUrl || './assets/user.png'}}" alt="User's photo">
+        <div class="online-now-info" *ngIf="isUserOnline()">
+            <div class="online-circle"></div>
+            Online now
+        </div>
         <div class="info-container">
             <div class="info">
                 <strong>Location:</strong>
@@ -12,7 +16,7 @@
             </div>
             <div class="info">
                 <strong>Last active:</strong>
-                <p>{{member.lastActive + 'Z' | timeago}}</p>
+                <p>{{member.lastActive | timeago}}</p>
             </div>
             <div class="info">
                 <strong>Member since:</strong>
@@ -20,7 +24,7 @@
             </div>
         </div>
         <div class="buttons-container">
-            <button class="like-button">
+            <button class="like-button" (click)="addLike(member)">
                 <mat-icon class="icon">favorite</mat-icon>
             </button>
             <button class="message-button" (click)="selectTab('Messages')">
@@ -51,7 +55,7 @@
             </tab>
             <tab heading="Messages" (selectTab)="onTabActivated($event)">
                 <div class="messages-container">
-                    <app-member-messages [username]="member.userName" [messages]="messages"></app-member-messages>
+                    <app-member-messages [username]="member.userName"></app-member-messages>
                 </div>
             </tab>
         </tabset>
