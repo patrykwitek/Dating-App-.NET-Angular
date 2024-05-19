@@ -1,10 +1,10 @@
 .photo-editor-container {
-    min-height: 230px;
     width: 60vw;
     display: flex;
     flex-wrap: wrap;
     gap: .5rem;
     margin-bottom: 2rem;
+    padding: 0 1rem;
 
     .single-photo-editor {
         width: 150px;
@@ -98,11 +98,16 @@
 }
 
 .row {
-    color: black;
+    padding: .5rem 1rem;
+    color: white;
 
     .col-md-3 {
+        h3 {
+            margin-bottom: .5rem;
+        }
+
         .nv-file-over {
-            border: 3px dotted red !important;
+            border: 3px dotted white !important;
         }
 
         .uploader {
@@ -111,8 +116,9 @@
             flex-direction: column;
             justify-content: center;
             padding: .5rem;
-            border: 1px gray solid;
+            border: 1px rgba(255, 255, 255, 0.1) solid;
             border-radius: 10px;
+            margin-bottom: 1rem;
 
             .upload-icon {
                 align-self: center;
@@ -128,6 +134,24 @@
 
         input[type=file] {
             color: transparent;
+            margin-bottom: .5rem;
+        }
+    }
+
+    .col-9 {
+        .table {
+            * {
+                background-color: transparent;
+                color: white;
+            }
+        }
+
+        .progress {
+            margin-bottom: .5rem;
+        }
+
+        button {
+            margin-right: .5rem;
         }
     }
 }

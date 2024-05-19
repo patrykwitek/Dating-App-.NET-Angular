@@ -9,10 +9,10 @@
             </button>
         </div>
     </div>
-    <div class="users-container">
+    <div class="users-container" *ngIf="members?.length != 0">
         <app-member-card *ngFor="let member of members" [member]="member"></app-member-card>
     </div>
-    <div *ngIf="pagination" class="pagination-container">
+    <div *ngIf="pagination && members?.length != 0" class="pagination-container">
         <pagination 
             [boundaryLinks]="true" 
             [totalItems]="pagination.totalItems" 
@@ -27,4 +27,6 @@
             class="pagination-styles">
         </pagination>
     </div>
+    <h3 *ngIf="members?.length == 0 && predicate == 'liked'">No sent likes yet</h3>
+    <h3 *ngIf="members?.length == 0 && predicate == 'likedBy'">No received likes yet</h3>
 </div>

@@ -10,9 +10,7 @@ namespace API.Controllers
     {
         private readonly UserManager<AppUser> _userManager;
 
-        public AdminController(
-            UserManager<AppUser> userManager
-        )
+        public AdminController(UserManager<AppUser> userManager)
         {
             _userManager = userManager;
         }
@@ -56,14 +54,14 @@ namespace API.Controllers
 
             var result = await _userManager.AddToRolesAsync(user, selectedRoles.Except(userRoles));
 
-            if(!result.Succeeded)
+            if (!result.Succeeded)
             {
                 return BadRequest("Failed to add roles");
             }
 
             result = await _userManager.RemoveFromRolesAsync(user, userRoles.Except(selectedRoles));
 
-            if(!result.Succeeded)
+            if (!result.Succeeded)
             {
                 return BadRequest("Failed to remove roles");
             }
@@ -73,9 +71,19 @@ namespace API.Controllers
 
         [Authorize(Policy = "ModeratePhotoRole")]
         [HttpGet("photos-to-moderate")]
-        public ActionResult GetPhotosForModeration()
+        public async Task<ActionResult> GetPhotosForModeration()
         {
-            return Ok("Admins or moderators can see this");
+            var usersWithPhotos = await _userManager.Users
+                .OrderBy(user => user.UserName)
+                .Select(user => new
+                {
+                    user.Id,
+                    Username = user.UserName,
+                    Photos = user.Photos.Select(photo => photo.Url).ToList()
+                })
+                .ToListAsync();
+
+            return Ok(usersWithPhotos);
         }
     }
 }

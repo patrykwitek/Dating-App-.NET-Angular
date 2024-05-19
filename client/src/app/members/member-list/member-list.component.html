@@ -1,23 +1,15 @@
-<div *ngIf="userParams" class="action-buttons-container">
-    <h2>{{pagination?.totalItems}} Matches</h2>
+<div class="member-list-container">
+    <div *ngIf="userParams" class="action-buttons-container">
+        <h2>{{pagination?.totalItems}} Matches</h2>
 
-    <form 
-        #form="ngForm"
-        (ngSubmit)="loadMembers()"
-        autocomplete="off">
+        <form #form="ngForm" (ngSubmit)="loadMembers()" autocomplete="off">
             <div class="single-form-property">
                 <label>Age from</label>
-                <input 
-                    type="number" 
-                    name="min-age"
-                    [(ngModel)]="userParams.minAge">
+                <input type="number" name="min-age" [(ngModel)]="userParams.minAge">
             </div>
             <div class="single-form-property">
                 <label>Age to</label>
-                <input 
-                    type="number" 
-                    name="max-age"
-                    [(ngModel)]="userParams.maxAge">
+                <input type="number" name="max-age" [(ngModel)]="userParams.maxAge">
             </div>
             <div class="single-form-property">
                 <label>Show: </label>
@@ -35,46 +27,31 @@
                 <!-- note: btnRadio (z bootstrapa) ustawia userParams.orderBy na wartość btnRadio -->
                 <p>Filter by:</p>
                 <div class="buttons-container">
-                    <button
-                        type="button"
-                        name="orderBy"
-                        [(ngModel)]="userParams.orderBy"
-                        btnRadio="lastActive"
+                    <button type="button" name="orderBy" [(ngModel)]="userParams.orderBy" btnRadio="lastActive"
                         (click)="loadMembers()">
-                            Last Active
+                        Last Active
                     </button>
-                    <button
-                        type="button"
-                        name="orderBy"
-                        [(ngModel)]="userParams.orderBy"
-                        btnRadio="created"
+                    <button type="button" name="orderBy" [(ngModel)]="userParams.orderBy" btnRadio="created"
                         (click)="loadMembers()">
-                            Newest Memebers
+                        Newest Memebers
                     </button>
                 </div>
             </div>
-    </form>
-</div>
-
-<div class="members-container">
-    <div *ngFor="let member of members" class="single-member">
-        <app-member-card [member]="member"></app-member-card>
+        </form>
     </div>
-    <!-- starsza wersja bez stronnicowania: *ngFor="let member of members$ | async" -->
-</div>
 
-<div *ngIf="pagination" class="pagination-container">
-    <pagination 
-        [boundaryLinks]="true" 
-        [totalItems]="pagination.totalItems" 
-        [itemsPerPage]="pagination.itemsPerPage"
-        [maxSize]="10"
-        [(ngModel)]="pagination.currentPage"
-        (pageChanged)="pageChanged($event)"
-        previousText="&lsaquo;" 
-        nextText="&rsaquo;" 
-        firstText="&laquo;"
-        lastText="&raquo;"
-        class="pagination-styles">
-    </pagination>
+    <div class="members-container">
+        <div *ngFor="let member of members" class="single-member">
+            <app-member-card [member]="member"></app-member-card>
+        </div>
+        <!-- starsza wersja bez stronnicowania: *ngFor="let member of members$ | async" -->
+    </div>
+
+    <div *ngIf="pagination" class="pagination-container">
+        <pagination [boundaryLinks]="true" [totalItems]="pagination.totalItems" [itemsPerPage]="pagination.itemsPerPage"
+            [maxSize]="10" [(ngModel)]="pagination.currentPage" (pageChanged)="pageChanged($event)"
+            previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;"
+            class="pagination-styles">
+        </pagination>
+    </div>
 </div>

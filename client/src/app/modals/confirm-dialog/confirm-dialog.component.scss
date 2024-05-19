@@ -1,0 +1,36 @@
+.confirm-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: .8rem 0;
+
+    * {
+        align-self: center;
+    }
+
+    .buttons-container {
+        display: flex;
+        gap: .5rem;
+
+        button {
+            border: 1px rgb(58, 154, 39) solid;
+            background-color: transparent;
+            color: rgb(58, 154, 39);
+
+            &:hover {
+                background-color: rgb(58, 154, 39);
+                color: white;
+            }
+        }
+
+        .cancel-button {
+            border: 1px rgb(200, 0, 0) solid;
+            color: rgb(200, 0, 0);
+
+            &:hover {
+                background-color: rgb(200, 0, 0);
+                color: white;
+            }
+        }
+    }
+}

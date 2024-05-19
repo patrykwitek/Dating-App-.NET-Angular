@@ -12,7 +12,7 @@
 
 .nav-tabs {
     li {
-        border-bottom: 4px solid transparent;
+        border-bottom: .25rem solid transparent;
 
         a {
             border: 0 !important;
@@ -24,15 +24,13 @@
         }
 
         &.active {
-            border-bottom: 1px rgba(255, 255, 255, 0.2) solid !important;
-            
             a {
                 border: 0 !important;
                 color: rgb(233, 199, 255) !important;
                 background-color: rgba(255, 255, 255, 0.2) !important;
             }
         }
-        
+
         &.open {
             a {
                 background: none !important;
@@ -42,18 +40,17 @@
 
         &:hover {
             a {
-                border: 0;
-                color: #333333;
-
-                i {
-                    color: #a6a6a6;
-                }
+                color: rgb(233, 199, 255) !important;
             }
         }
     }
 }
 
-.member-tabset {   
+.nav {
+    border: none !important;
+}
+
+.member-tabset {
     .tab-content {
         margin-top: -3px;
         background-color: rgba(255, 255, 255, 0.2);
