@@ -32,6 +32,9 @@
             list-style-type: none;
             text-align: left;
             padding: 0;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            height: 500px;
 
             li {
                 .their-message {

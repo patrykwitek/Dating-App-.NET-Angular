@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using API.Extensions;
 using API.Interfaces;
 using Microsoft.AspNetCore.Mvc.Filters;
@@ -22,13 +18,13 @@ namespace API.Helpers
 
             var userId = resultContext.HttpContext.User.GetUserId();
 
-            var repository = resultContext.HttpContext.RequestServices.GetRequiredService<IUserRepository>();
+            var unitOfWork = resultContext.HttpContext.RequestServices.GetRequiredService<IUnitOfWork>();
 
             // note: używanie tutaj metody GetUserByIdAsync zamiast GetUserByUsernameAsync skróca zapytanie wysyłane do bazy, ponieważ GetUserByUsernameAsync uwzględnia też zdjęcia
-            var user = await repository.GetUserByIdAsync(userId);
+            var user = await unitOfWork.UserRepository.GetUserByIdAsync(userId);
             user.LastActive = DateTime.UtcNow;
 
-            await repository.SaveAllAsync();
+            await unitOfWork.Complete();
         }
     }
 }

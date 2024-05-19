@@ -24,6 +24,10 @@
             <mat-icon class="icon">keyboard_arrow_down</mat-icon>
         </a>
         <div [className]="'dropdown-list-menu ' + (showDropdownMenu ? 'active' : 'inactive')">
+            <a class="dropdown-list-item" title="my profile" routerLink="/members/{{user.username}}">
+                <mat-icon class="icon">person</mat-icon>
+                <div>My Profile</div>
+            </a>
             <a class="dropdown-list-item" title="edit profile" routerLink="/member/edit">
                 <mat-icon class="icon">edit</mat-icon>
                 <div>Edit Profile</div>

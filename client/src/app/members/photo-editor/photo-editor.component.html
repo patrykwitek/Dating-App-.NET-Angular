@@ -1,4 +1,4 @@
-<div *ngIf="member" class="photo-editor-container">
+<div *ngIf="member && member.photos.length != 0" class="photo-editor-container">
     <div *ngFor="let photo of member.photos" class="single-photo-editor">
         <img src="{{photo.url}}" alt="user's photo">
         <div class="buttons-section">

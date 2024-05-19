@@ -10,7 +10,7 @@
                 </p>
             </div>
         </div>
-        <ul *ngIf="!areNoMessages()">
+        <ul #messagesScroll [scrollTop]="messagesScroll.scrollHeight" *ngIf="!areNoMessages()" >
             <li *ngFor="let message of getMessages()">
                 <div [ngClass]="currentUser && message.senderUsername === currentUser.username ? 'our-message' : 'their-message'">
                     <img *ngIf="currentUser && message.senderUsername !== currentUser.username" src="{{message.senderPhotoUrl || './assets/user.png'}}" alt="Profile photo">

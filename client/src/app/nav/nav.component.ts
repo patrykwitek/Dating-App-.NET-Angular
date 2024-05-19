@@ -12,7 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class NavComponent implements OnInit {
   model: any = {};
-  showDropdownMenu = false;
+  showDropdownMenu: boolean = false;
 
   constructor(
     public accountService: AccountService,
@@ -24,9 +24,12 @@ export class NavComponent implements OnInit {
   }
 
   login() {
+    this.showDropdownMenu = false;
+
     this.accountService.login(this.model).subscribe({
       next: () => {
         this.router.navigateByUrl('/members');
+        this.model = {};
       }
     })
   }
