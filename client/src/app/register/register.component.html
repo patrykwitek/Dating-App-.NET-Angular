@@ -1,13 +1,13 @@
 <form class='register-form' [formGroup]="registerForm" (ngSubmit)="registerForm.valid && register()" autocomplete="off">
-    <h2>Sign up</h2>
+    <h2>{{"SignUp" | translate}}</h2>
     <div class="input-container">
         <div class="gender-field">
-            <label>Gender:</label>
+            <label>{{"Gender" | translate}}:</label>
             <label>
-                <input type="radio" value="male" formControlName="gender"> Male
+                <input type="radio" value="male" formControlName="gender"> {{"Male" | translate}}
             </label>
             <label>
-                <input type="radio" value="female" formControlName="gender"> Female
+                <input type="radio" value="female" formControlName="gender"> {{"Female" | translate}}
             </label>
         </div>
         <app-text-input 
@@ -16,11 +16,11 @@
         </app-text-input>
         <app-text-input 
             [formControl]="$any(registerForm.controls['knownAs'])" 
-            [label]="'Known As'">
+            [label]="'KnownAs'">
         </app-text-input>
         <app-date-picker
             [formControl]="$any(registerForm.controls['dateOfBirth'])" 
-            [label]="'Date of birth'" [maxDate]="maxDate">
+            [label]="'DateOfBirth'" [maxDate]="maxDate">
         </app-date-picker>
         <app-text-input 
             [formControl]="$any(registerForm.controls['city'])" 
@@ -37,7 +37,7 @@
         </app-text-input>
         <app-text-input 
             [formControl]="$any(registerForm.controls['confirmPassword'])" 
-            [label]="'Confirm Password'" 
+            [label]="'ConfirmPassword'" 
             [type]="'password'">
         </app-text-input>
     </div>
@@ -53,8 +53,8 @@
             class="register-button" 
             type="submit"
             [disabled]="!registerForm.valid">
-                Create Account
+                {{"CreateAccount" | translate}}
         </button>
-        <button class="cancel-button" type="button" (click)="cancel()">Cancel</button>
+        <button class="cancel-button" type="button" (click)="cancel()">{{"Cancel" | translate}}</button>
     </div>
 </form>

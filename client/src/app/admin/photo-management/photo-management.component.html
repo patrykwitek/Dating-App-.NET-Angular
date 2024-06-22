@@ -2,7 +2,7 @@
     <div class="single-user" *ngFor="let user of users">
         <h3>{{user.username | titlecase}}</h3>
         <div *ngIf="user.photos.length == 0">
-            <p>No photos</p>
+            <p>{{"NoPhotos" | translate}}</p>
         </div>
         <div class="photos-list-container" *ngIf="user.photos.length != 0">
             <img src="{{photo}}" alt="{{user.username}}'s photo" *ngFor="let photo of user.photos">

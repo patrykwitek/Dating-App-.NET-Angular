@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
+import { TranslateModule } from '@ngx-translate/core';
 import { TimeagoModule } from 'ngx-timeago';
 import { take } from 'rxjs';
 import { Message } from 'src/app/_models/message';
@@ -18,7 +19,8 @@ import { MessageService } from 'src/app/_services/message.service';
     CommonModule,
     TimeagoModule,
     MatIconModule,
-    FormsModule
+    FormsModule,
+    TranslateModule
   ]
 })
 export class MemberMessagesComponent implements OnInit {

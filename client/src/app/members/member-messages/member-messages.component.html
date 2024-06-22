@@ -3,10 +3,10 @@
         <div class="no-messages" *ngIf="areNoMessages()">
             <div class="no-messages-container">
                 <p>
-                    No messages
+                    {{"NoMessages" | translate}}
                 </p>
                 <p>
-                    Say hi to {{username | titlecase}}
+                    {{"SayHiTo" | translate}} {{username | titlecase}}
                 </p>
             </div>
         </div>
@@ -24,10 +24,10 @@
                                     {{message.messageSent | timeago}}
                                 </span>
                                 <span *ngIf="!message.dateRead && message.senderUsername !== username">
-                                    (unread)
+                                    ({{"Unread" | translate}})
                                 </span>
                                 <span *ngIf="message.dateRead && message.senderUsername !== username">
-                                    (read {{message.dateRead | timeago}})
+                                    ({{"Read" | translate}} {{message.dateRead | timeago}})
                                 </span>
                             </small>
                         </div>
@@ -46,7 +46,7 @@
                 type="text" 
                 placeholder="Send message">
             <button type="submit" [disabled]="!messageForm.valid">
-                Send
+                {{"Send" | translate}}
                 <mat-icon class="icon">send</mat-icon>
             </button>
         </form>

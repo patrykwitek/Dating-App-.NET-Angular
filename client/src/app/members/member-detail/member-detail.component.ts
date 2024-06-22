@@ -15,6 +15,7 @@ import { AccountService } from 'src/app/_services/account.service';
 import { User } from 'src/app/_models/user';
 import { MembersService } from 'src/app/_services/members.service';
 import { ToastrService } from 'ngx-toastr';
+import { TranslateModule } from '@ngx-translate/core'
 
 @Component({
   selector: 'app-member-detail',
@@ -27,7 +28,8 @@ import { ToastrService } from 'ngx-toastr';
     MatIconModule,
     GalleryModule,
     TimeagoModule,
-    MemberMessagesComponent
+    MemberMessagesComponent,
+    TranslateModule
   ]
 })
 export class MemberDetailComponent implements OnInit, OnDestroy {

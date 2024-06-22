@@ -4,39 +4,42 @@ import { Observable, of } from 'rxjs';
 import { User } from '../_models/user';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { SettingsComponent } from '../modals/settings/settings.component';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss']
 })
-export class NavComponent implements OnInit {
+export class NavComponent {
   model: any = {};
-  showDropdownMenu: boolean = false;
+  showDropdownMenu = false;
+  bsModalRef: BsModalRef<SettingsComponent> = new BsModalRef<SettingsComponent>();
 
   constructor(
     public accountService: AccountService,
     private router: Router,
     private toastr: ToastrService,
+    private modalService: BsModalService,
+    private translateService: TranslateService
   ) { }
 
-  ngOnInit(): void {
-  }
-
   login() {
-    this.showDropdownMenu = false;
-
     this.accountService.login(this.model).subscribe({
       next: () => {
         this.router.navigateByUrl('/members');
-        this.model = {};
       }
-    })
+    });
+
+    this.showDropdownMenu = false;
   }
 
   logout() {
     this.accountService.logout();
     this.router.navigateByUrl('/');
+    this.showDropdownMenu = false;
   }
 
   toggleDropdownMenu(): void {
@@ -47,6 +50,19 @@ export class NavComponent implements OnInit {
   clickOutside(): void {
     this.showDropdownMenu = false;
     this.changeDropdownIcon();
+  }
+
+  chooseMenuOption(): void {
+    this.showDropdownMenu = false;
+  }
+
+  openSettings(): void {
+    this.chooseMenuOption();
+    const config = {
+      class: 'modal-dialog-centered'
+    };
+
+    this.bsModalRef = this.modalService.show(SettingsComponent, config);
   }
 
   changeDropdownIcon() {

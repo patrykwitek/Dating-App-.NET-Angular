@@ -2,10 +2,10 @@
     <div class="buttons-container">
         <div name="predicate">
             <button btnRadio="liked" [(ngModel)]="predicate" (click)="loadLikes()">
-                Sent likes
+                {{"SentLikes" | translate}}
             </button>
             <button btnRadio="likedBy" [(ngModel)]="predicate" (click)="loadLikes()">
-                Received likes
+                {{"ReceivedLikes" | translate}}
             </button>
         </div>
     </div>
@@ -27,6 +27,6 @@
             class="pagination-styles">
         </pagination>
     </div>
-    <h3 *ngIf="members?.length == 0 && predicate == 'liked'">No sent likes yet</h3>
-    <h3 *ngIf="members?.length == 0 && predicate == 'likedBy'">No received likes yet</h3>
+    <h3 *ngIf="members?.length == 0 && predicate == 'liked'">{{"NoSentLikesYet" | translate}}</h3>
+    <h3 *ngIf="members?.length == 0 && predicate == 'likedBy'">{{"NoReceivedLikesYet" | translate}}</h3>
 </div>
