@@ -3,23 +3,23 @@
         <img src="{{member.photoUrl || './assets/user.png'}}" alt="User's photo">
         <div class="online-now-info" *ngIf="isUserOnline()">
             <div class="online-circle"></div>
-            Online now
+            {{"OnlineNow" | translate}}
         </div>
         <div class="info-container">
             <div class="info">
-                <strong>Location:</strong>
+                <strong>{{"Location" | translate}}:</strong>
                 <p>{{member.city}}, {{member.country}}</p>
             </div>
             <div class="info">
-                <strong>Age:</strong>
+                <strong>{{"Age" | translate}}:</strong>
                 <p>{{member.age}}</p>
             </div>
             <div class="info">
-                <strong>Last active:</strong>
+                <strong>{{"LastActive" | translate}}:</strong>
                 <p>{{member.lastActive | timeago}}</p>
             </div>
             <div class="info">
-                <strong>Member since:</strong>
+                <strong>{{"MemberSince" | translate}}:</strong>
                 <p>{{member.created | date: "dd MMMM yyyy"}}</p>
             </div>
         </div>
@@ -36,15 +36,15 @@
         <tabset class="member-tabset" #memberTabs>
             <tab heading="About {{member.knownAs}}" (selectTab)="onTabActivated($event)">
                 <div class="about-container">
-                    <h4>Description</h4>
+                    <h4>{{"Description" | translate}}</h4>
                     <p>{{member.introduction}}</p>
-                    <h4>Looking for</h4>
+                    <h4>{{"LookingFor" | translate}}</h4>
                     <p>{{member.lookingFor}}</p>
                 </div>
             </tab>
             <tab heading="Interests" (selectTab)="onTabActivated($event)">
                 <div class="interests-container">
-                    <h4>Interests</h4>
+                    <h4>{{"Interests" | translate}}</h4>
                     <p>{{member.interests}}</p>
                 </div>
             </tab>

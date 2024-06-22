@@ -5,33 +5,33 @@
             [(ngModel)]="container"
             (click)="loadMessages()">
                 <mat-icon class="icon">visibility</mat-icon>
-                Unread
+                {{"UnreadUppercase" | translate}}
         </button>
         <button
             btnRadio="Inbox"
             [(ngModel)]="container"
             (click)="loadMessages()">
                 <mat-icon class="icon">drafts</mat-icon>
-                Inbox
+                {{"Inbox" | translate}}
         </button>
         <button
             btnRadio="Outbox"
             [(ngModel)]="container"
             (click)="loadMessages()">
                 <mat-icon class="icon">send</mat-icon>
-                Outbox
+                {{"Outbox" | translate}}
         </button>
     </div>
     <div class="no-messages-container" *ngIf="!messages || messages.length === 0">
-        <h3>No messages</h3>
+        <h3>{{"NoMessagesUppercase" | translate}}</h3>
     </div>
     <div class="users-messages-container" *ngIf="!loading && messages && messages.length > 0">
         <table>
             <thead>
                 <tr>
-                    <th class="table-messages">Message</th>
-                    <th class="table-from-to">{{container === 'Outbox' ? 'To' : 'From'}}</th>
-                    <th class="table-sent">{{container === 'Outbox' ? 'Sent' : 'Received'}}</th>
+                    <th class="table-messages">{{"Message" | translate}}</th>
+                    <th class="table-from-to">{{container === 'Outbox' ? ("To" | translate) : ("From" | translate)}}</th>
+                    <th class="table-sent">{{container === 'Outbox' ? ("Sent" | translate) : ("Received" | translate)}}</th>
                     <th class="table-actions"></th>
                 </tr>
             </thead>

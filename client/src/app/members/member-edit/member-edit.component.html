@@ -1,12 +1,12 @@
 <div *ngIf="member" class="edit-container">
     <div class="top-section">
         <div class="title-section">
-            <h1>Your Profile</h1>
+            <h1>{{"YourProfile" | translate}}</h1>
         </div>
         <div class="save-changes-info-section">
             <p *ngIf="editForm.dirty">
-                <strong>Information: </strong>
-                You have made made changes. Any unsaved changes will be lost.
+                <strong>{{"Information" | translate}}: </strong>
+                {{"YouHaveMadeChanges" | translate}}
             </p>
         </div>
     </div>
@@ -15,19 +15,19 @@
             <img src="{{member.photoUrl || './assets/user.png'}}" alt="User's photo">
             <div class="info-container">
                 <div class="info">
-                    <strong>Location:</strong>
+                    <strong>{{"Location" | translate}}:</strong>
                     <p>{{member.city}}, {{member.country}}</p>
                 </div>
                 <div class="info">
-                    <strong>Age:</strong>
+                    <strong>{{"Age" | translate}}:</strong>
                     <p>{{member.age}}</p>
                 </div>
                 <div class="info">
-                    <strong>Last active:</strong>
+                    <strong>{{"LastActive" | translate}}:</strong>
                     <p>{{member.lastActive | timeago}}</p>
                 </div>
                 <div class="info">
-                    <strong>Member since:</strong>
+                    <strong>{{"MemberSince" | translate}}:</strong>
                     <p>{{member.created | date: "dd MMMM yyyy"}}</p>
                 </div>
             </div>
@@ -42,23 +42,23 @@
                 <tab heading="About {{member.knownAs}}">
                     <div class="about-container">
                         <form #editForm="ngForm" id="editForm" (ngSubmit)="updateMember()">
-                            <h4>Description</h4>
+                            <h4>{{"Description" | translate}}</h4>
                             <textarea [(ngModel)]="member.introduction" name="introduction" rows="6">
                             </textarea>
-                            <h4>Looking For</h4>
+                            <h4>{{"LookingFor" | translate}}</h4>
                             <textarea [(ngModel)]="member.lookingFor" name="lookingFor" rows="6">
                             </textarea>
-                            <h4>Interests</h4>
+                            <h4>{{"Interests" | translate}}</h4>
                             <textarea [(ngModel)]="member.interests" name="interests" rows="6">
                             </textarea>
-                            <h4>Location details</h4>
+                            <h4>{{"LocationDetails" | translate}}</h4>
                             <div class="location-details-section">
                                 <div class="location-details-input">
-                                    <label for="city">City:</label>
+                                    <label for="city">{{"City" | translate}}:</label>
                                     <input type="text" name="city" [(ngModel)]="member.city">
                                 </div>
                                 <div class="location-details-input">
-                                    <label for="country">Country:</label>
+                                    <label for="country">{{"Country" | translate}}:</label>
                                     <input type="text" name="country" [(ngModel)]="member.country">
                                 </div>
                             </div>

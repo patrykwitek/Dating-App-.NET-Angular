@@ -2,8 +2,8 @@
     <table>
         <thead>
             <tr>
-                <th class="table-username">Username</th>
-                <th class="table-roles">Active roles</th>
+                <th class="table-username">{{"Username" | translate}}</th>
+                <th class="table-roles">{{"ActiveRoles" | translate}}</th>
                 <th class="table-actions"></th>
             </tr>
         </thead>
@@ -15,7 +15,7 @@
                     <button (click)="openRolesModal(user)">
                         <div>
                             <mat-icon class="icon">edit</mat-icon>
-                            Edit roles
+                            {{"EditRoles" | translate}}
                         </div>
                     </button>
                 </td>

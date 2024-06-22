@@ -1,18 +1,18 @@
 <nav>
-    <a class="app-title" routerLink="/">Dating App</a>
+    <a class="app-title" routerLink="/">{{"DatingApp" | translate}}</a>
     <ul class="nav-items">
         <ng-container *ngIf="accountService.currentUser$ | async">
             <li class="nav-item">
-                <a class="nav-item-text" routerLink="/members" routerLinkActive="active">Matches</a>
+                <a class="nav-item-text" routerLink="/members" routerLinkActive="active">{{"Matches" | translate}}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-item-text" routerLink="/sent-likes" routerLinkActive="active">Sent likes</a>
+                <a class="nav-item-text" routerLink="/sent-likes" routerLinkActive="active">{{"SentLikes" | translate}}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-item-text" routerLink="/messages" routerLinkActive="active">Messages</a>
+                <a class="nav-item-text" routerLink="/messages" routerLinkActive="active">{{"Messages" | translate}}</a>
             </li>
             <li *appHasRole="['Admin', 'Moderator']" class="nav-item">
-                <a class="nav-item-text" routerLink="/admin" routerLinkActive="active">Admin</a>
+                <a class="nav-item-text" routerLink="/admin" routerLinkActive="active">{{"Admin" | translate}}</a>
             </li>
         </ng-container>
     </ul>
@@ -20,32 +20,32 @@
         <a [className]="'dropdown-list-toggle ' + (showDropdownMenu ? 'highlighted' : '')"
             (click)="toggleDropdownMenu()">
             <img src="{{user.photoUrl || './assets/user.png'}}" alt="user's profile photo" class="users-profile-photo">
-            <div>Welcome {{user.knownAs | titlecase}}</div>
+            <div>{{"Welcome" | translate}} {{user.knownAs | titlecase}}</div>
             <mat-icon class="icon">keyboard_arrow_down</mat-icon>
         </a>
         <div [className]="'dropdown-list-menu ' + (showDropdownMenu ? 'active' : 'inactive')">
-            <a class="dropdown-list-item" title="my profile" routerLink="/members/{{user.username}}">
+            <a class="dropdown-list-item" title="my profile" routerLink="/members/{{user.username}}" (click)="chooseMenuOption()">
                 <mat-icon class="icon">person</mat-icon>
-                <div>My Profile</div>
+                <div>{{"MyProfile" | translate}}</div>
             </a>
-            <a class="dropdown-list-item" title="edit profile" routerLink="/member/edit">
+            <a class="dropdown-list-item" title="edit profile" routerLink="/member/edit" (click)="chooseMenuOption()">
                 <mat-icon class="icon">edit</mat-icon>
-                <div>Edit Profile</div>
+                <div>{{"EditProfile" | translate}}</div>
             </a>
-            <a class="dropdown-list-item" title="settings">
+            <a class="dropdown-list-item" title="settings" (click)="openSettings()">
                 <mat-icon class="icon">settings</mat-icon>
-                <div>Settings</div>
+                <div>{{"Settings" | translate}}</div>
             </a>
             <a class="dropdown-list-item" title="logout" (click)="logout()">
                 <mat-icon class="icon">keyboard_return</mat-icon>
-                <div>Logout</div>
+                <div>{{"Logout" | translate}}</div>
             </a>
         </div>
     </div>
     <form *ngIf="!(accountService.currentUser$ | async)" #loginForm="ngForm" class="login-form" (ngSubmit)="login()"
         autocomplete="off">
-        <input name="username" [(ngModel)]="model.username" class="login-input" type="text" placeholder="Username">
-        <input name="password" [(ngModel)]="model.password" class="login-input" type="password" placeholder="Password">
-        <button class="login-btn" type="submit">Login</button>
+        <input name="username" [(ngModel)]="model.username" class="login-input" type="text" [placeholder]="'Username' | translate">
+        <input name="password" [(ngModel)]="model.password" class="login-input" type="password" [placeholder]="'Password' | translate">
+        <button class="login-btn" type="submit">{{"Login" | translate}}</button>
     </form>
 </nav>

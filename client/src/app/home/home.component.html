@@ -1,9 +1,9 @@
 <div class="home-container">
     <div *ngIf="!registerMode" class="welcome-page">
-        <h1>Swipe for match</h1>
+        <h1>{{"SwipeForMatch" | translate}}</h1>
         <div class="buttons-container">
-            <button (click)="registerToggle()">Create account</button>
-            <button routerLink="/about-author">About Author</button>
+            <button (click)="registerToggle()">{{"CreateAccount" | translate}}</button>
+            <button routerLink="/about-author">{{"AboutAuthor" | translate}}</button>
         </div>
     </div>
     <div *ngIf="registerMode">

@@ -1,39 +1,39 @@
 <div class="member-list-container">
     <div *ngIf="userParams" class="action-buttons-container">
-        <h2>{{pagination?.totalItems}} Matches</h2>
+        <h2>{{pagination?.totalItems}} {{"Matches" | translate}}</h2>
 
         <form #form="ngForm" (ngSubmit)="loadMembers()" autocomplete="off">
             <div class="single-form-property">
-                <label>Age from</label>
+                <label>{{"AgeFrom" | translate}}</label>
                 <input type="number" name="min-age" [(ngModel)]="userParams.minAge">
             </div>
             <div class="single-form-property">
-                <label>Age to</label>
+                <label>{{"AgeTo" | translate}}</label>
                 <input type="number" name="max-age" [(ngModel)]="userParams.maxAge">
             </div>
             <div class="single-form-property">
-                <label>Show: </label>
+                <label>{{"Show" | translate}}: </label>
                 <select name="gender" [(ngModel)]="userParams.gender">
                     <option *ngFor="let gender of genderList" [value]="gender.value">
-                        {{gender.display}}
+                        {{gender.display | translate}}
                     </option>
                 </select>
             </div>
 
-            <button type="submit">Apply filters</button>
-            <button type="submit" (click)="resetFilters()">Reset filters</button>
+            <button type="submit">{{"ApplyFilters" | translate}}</button>
+            <button type="submit" (click)="resetFilters()">{{"ResetFilters" | translate}}</button>
 
             <div class="filter-container">
                 <!-- note: btnRadio (z bootstrapa) ustawia userParams.orderBy na wartość btnRadio -->
-                <p>Filter by:</p>
+                <p>{{"FilterBy" | translate}}:</p>
                 <div class="buttons-container">
                     <button type="button" name="orderBy" [(ngModel)]="userParams.orderBy" btnRadio="lastActive"
                         (click)="loadMembers()">
-                        Last Active
+                        {{"LastActive" | translate}}
                     </button>
                     <button type="button" name="orderBy" [(ngModel)]="userParams.orderBy" btnRadio="created"
                         (click)="loadMembers()">
-                        Newest Memebers
+                        {{"NewestMemebers" | translate}}
                     </button>
                 </div>
             </div>

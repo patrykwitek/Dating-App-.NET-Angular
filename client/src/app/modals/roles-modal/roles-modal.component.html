@@ -1,5 +1,5 @@
 <div class="modal-header">
-    <h4 class="modal-title pull-left">Edit roles for {{username | titlecase}}</h4>
+    <h4 class="modal-title pull-left">{{"EditRolesFor" | translate}} {{username | titlecase}}</h4>
     <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
         <span aria-hidden="true" class="visually-hidden">&times;</span>
     </button>
@@ -18,5 +18,5 @@
     </form>
 </div>
 <div class="modal-footer">
-    <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">Submit</button>
+    <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">{{"Submit" | translate}}</button>
 </div>
