@@ -25,4 +25,10 @@
             </div>
         </div>
     </div>
+    <div class="dark-light-mode-section">
+        <p>{{"DarkMode" | translate}}:</p>
+        <div class="toggle-switch" [ngClass]="isDarkMode ? 'active-toggle-switch' : ''" (click)="toggleTheme()">
+            <div class="toggle-ball" [ngClass]="isDarkMode ? 'active-toggle-ball' : ''"></div>
+        </div>
+    </div>
 </div>

@@ -21,7 +21,7 @@ nav {
         margin: 0;
 
         &:hover {
-            color: rgb(217, 160, 255);
+            color: var(--header-hover-text);
         }
     }
 
@@ -45,13 +45,13 @@ nav {
                 cursor: pointer;
 
                 .nav-item-text {
-                    color: rgb(233, 199, 255);
+                    color: var(--header-hover-text);
                 }
             }
         }
 
         .active {
-            color: rgb(233, 199, 255) !important;
+            color: var(--header-hover-text) !important;
         }
     }
 
@@ -85,12 +85,12 @@ nav {
             }
 
             &.highlighted {
-                color: rgb(233, 199, 255);
+                color: var(--header-hover-text);
             }
 
             &:hover {
                 cursor: pointer;
-                color: rgb(233, 199, 255);
+                color: var(--header-hover-text);
 
                 .users-profile-photo {
                     opacity: .8;
@@ -99,7 +99,7 @@ nav {
         }
 
         .dropdown-list-menu {
-            background-color: rgb(249, 240, 255);
+            background-color: var(--dropdown-list-background);
             border-radius: 5px;
             display: flex;
             flex-direction: column;
@@ -120,7 +120,7 @@ nav {
 
                 &:hover {
                     cursor: pointer;
-                    color: rgb(141, 60, 138);
+                    color: var(--dropdown-list-text);
 
                     .icon {
                         transform: scale(120%);
@@ -174,9 +174,9 @@ nav {
             transition: .2s;
 
             &:hover {
-                background-color: rgb(251, 245, 255);
-                border: 1px rgb(251, 245, 255) solid;
-                color: rgb(62, 18, 91);
+                background-color: var(--dropdown-list-background);
+                border: 1px var(--dropdown-list-background) solid;
+                color: var(--background-color-two);
                 box-shadow: 0px 0px 8px -2px black;
             }
         }

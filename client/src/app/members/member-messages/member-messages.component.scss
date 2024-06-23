@@ -57,7 +57,7 @@
                     .message-content {
                         padding: .6rem 1rem;
                         border-radius: .3rem;
-                        background-color: #B180B2;
+                        background-color: var(--message-color);
                         position: relative;
                         box-shadow: 0px 0px 9px -6px black;
 
@@ -78,7 +78,7 @@
                             height: 14px;
                             width: 14px;
                             transform: rotate(45deg);
-                            background-color: #B180B2;
+                            background-color: var(--message-color);
                         }
                     }
                 }
@@ -104,7 +104,7 @@
                     .message-content {
                         padding: .6rem 1rem;
                         border-radius: .3rem;
-                        background-color: #B180B2;
+                        background-color: var(--message-color);
                         position: relative;
                         box-shadow: 0px 0px 9px -6px black;
                         text-align: right;
@@ -126,7 +126,7 @@
                             height: 14px;
                             width: 14px;
                             transform: rotate(45deg);
-                            background-color: #B180B2;
+                            background-color: var(--message-color);
                         }
                     }
                 }
@@ -181,7 +181,8 @@
                 }
 
                 &:hover {
-                    background-color: rgb(141, 60, 138);
+                    cursor: pointer;
+                    background-color: var(--dropdown-list-text);
                     color: white;
                 }
             }

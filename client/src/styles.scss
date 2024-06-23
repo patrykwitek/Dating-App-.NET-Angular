@@ -6,6 +6,38 @@
 /* Importing Datepicker SCSS file. */
 @import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
 
+:root {
+    --background-color-one: rgb(141, 60, 138);
+    --background-color-two: rgb(62, 18, 91);
+    --header-color: rgb(62, 18, 91);
+    --cancel-button: rgb(217, 160, 255);
+    --gender-section: rgb(0, 0, 0);
+    --cancel-button-hover: rgb(255, 255, 255);
+    --filter-hover: rgba(233, 199, 255, 0.5);
+    --filter-active: rgba(233, 199, 255, 0.9);
+    --header-hover-text: rgb(217, 160, 255);
+    --dropdown-list-background: rgb(249, 240, 255);
+    --dropdown-list-text: rgb(141, 60, 138);
+    --likes-color: rgb(233, 199, 255);
+    --message-color: rgb(177, 128, 178);
+}
+
+body.dark-mode {
+    --background-color-one: rgb(18, 18, 18);
+    --background-color-two: rgb(12, 12, 12);
+    --header-color: rgb(255, 255, 255);
+    --cancel-button: rgb(255, 255, 255);
+    --gender-section: rgb(255, 255, 255);
+    --cancel-button-hover: rgb(12, 12, 12);
+    --filter-hover: rgba(255, 255, 255, 0.5);
+    --filter-active: rgba(255, 255, 255, 0.9);
+    --header-hover-text: rgb(196, 196, 196);
+    --dropdown-list-background: rgb(255, 255, 255);
+    --dropdown-list-text: rgba(12, 12, 12, 0.6);
+    --likes-color: rgb(255, 255, 255);
+    --message-color: rgb(102, 102, 102);
+}
+
 .active {
     color: white !important;
 }
@@ -26,7 +58,7 @@
         &.active {
             a {
                 border: 0 !important;
-                color: rgb(233, 199, 255) !important;
+                color: var(--likes-color) !important;
                 background-color: rgba(255, 255, 255, 0.2) !important;
             }
         }
@@ -40,7 +72,7 @@
 
         &:hover {
             a {
-                color: rgb(233, 199, 255) !important;
+                color: var(--likes-color) !important;
             }
         }
     }

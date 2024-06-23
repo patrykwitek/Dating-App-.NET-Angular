@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { Language } from 'src/app/_models/language';
+import { ThemeService } from 'src/app/_services/theme.service';
 
 @Component({
   selector: 'app-settings',
@@ -10,14 +11,17 @@ import { Language } from 'src/app/_models/language';
 })
 export class SettingsComponent implements OnInit {
   public selectedLanguage: string | undefined = 'en';
+  public isDarkMode: boolean | undefined;
 
   constructor(
     private bsModalRef: BsModalRef,
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    private themeService: ThemeService
   ) { }
 
   ngOnInit(): void {
     this.selectedLanguage = this.translateService.currentLang;
+    this.isDarkMode = this.themeService.isDarkMode();
   }
 
   public close() {
@@ -33,5 +37,12 @@ export class SettingsComponent implements OnInit {
     this.selectedLanguage = language;
     this.translateService.use(this.selectedLanguage);
     localStorage.setItem('datingAppLanguage', JSON.stringify(this.selectedLanguage));
+  }
+
+  public toggleTheme() {
+    this.themeService.toggleMode();
+    this.isDarkMode = !this.isDarkMode;
+
+    localStorage.setItem('datingAppDarkMode', JSON.stringify(this.isDarkMode));
   }
 }
