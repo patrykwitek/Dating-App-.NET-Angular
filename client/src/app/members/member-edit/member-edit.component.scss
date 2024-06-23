@@ -12,17 +12,17 @@
 
         .title-section {
             width: 50%;
-            color: rgb(62, 18, 91);
+            color: var(--header-color);
         }
 
         .save-changes-info-section {
             width: 50%;
 
             p {
-                border: 1px rgb(233, 199, 255) solid;
+                border: 1px var(--likes-color) solid;
                 background-color: rgba(255, 255, 255, 0.2);
                 padding: 1rem 2rem;
-                color: rgb(233, 199, 255);
+                color: var(--likes-color);
             }
         }
     }
@@ -62,8 +62,8 @@
                 button {
                     width: 100%;
                     transition: .2s;
-                    border: 1px rgb(62, 18, 91) solid;
-                    background-color: rgb(62, 18, 91);
+                    border: 1px var(--background-color-two) solid;
+                    background-color: var(--background-color-two);
                     color: white;
 
                     .icon {

@@ -23,6 +23,7 @@
         .gender-field {
             display: flex;
             gap: .5rem;
+            color: var(--gender-section);
         }
 
         * {
@@ -58,21 +59,22 @@
             transition: .2s;
 
             &:hover {
+                cursor: pointer;
                 background-color: white;
-                color: rgb(62, 18, 91);
+                color: var(--background-color-two);
                 border-color: white;
             }
         }
 
         .cancel-button {
-            border: 1px rgb(217, 160, 255) solid;
+            border: 1px var(--cancel-button) solid;
             background-color: transparent;
-            color: rgb(217, 160, 255);
+            color: var(--cancel-button);
             transition: .2s;
 
             &:hover {
-                background-color: rgb(217, 160, 255);
-                color: white;
+                background-color: var(--cancel-button);
+                color: var(--cancel-button-hover);
             }
         }
     }

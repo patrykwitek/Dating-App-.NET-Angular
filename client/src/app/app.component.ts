@@ -3,6 +3,7 @@ import { AccountService } from './_services/account.service';
 import { User } from './_models/user';
 import { TranslateService } from '@ngx-translate/core';
 import { Language } from './_models/language';
+import { ThemeService } from './_services/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,8 @@ import { Language } from './_models/language';
 export class AppComponent implements OnInit {
   constructor(
     private accoutService: AccountService,
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    private themeService: ThemeService
   ) { }
 
   ngOnInit(): void {
@@ -28,6 +30,15 @@ export class AppComponent implements OnInit {
       this.translateService.use(language);
     }
 
+    const isDarkModeString = localStorage.getItem('datingAppDarkMode');
+    if (!isDarkModeString) {
+      localStorage.setItem('datingAppDarkMode', JSON.stringify(false));
+    }
+    else {
+      const isDarkMode: boolean = JSON.parse(isDarkModeString);
+      this.themeService.setMode(isDarkMode);
+      this.themeService.refreshPage();
+    }
   }
 
   setCurrentUser() {

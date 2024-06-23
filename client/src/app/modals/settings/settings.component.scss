@@ -6,6 +6,10 @@
 }
 
 .modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
     .language-section {
         width: 100%;
         display: flex;
@@ -50,6 +54,45 @@
                     cursor: pointer;
                     transform: scale(1.05, 1.05);
                 }
+            }
+        }
+    }
+
+    .dark-light-mode-section {
+        width: 100%;
+        display: flex;
+        gap: .8rem;
+
+        .toggle-switch {
+            width: 45px;
+            height: 25px;
+            background-color: rgb(204, 204, 204);
+            border-radius: 25px;
+            position: relative;
+            transition: .2s;
+
+            .toggle-ball {
+                width: 23px;
+                height: 23px;
+                background-color: white;
+                border-radius: 50%;
+                position: absolute;
+                top: 1px;
+                left: 1px;
+                transition: .2s;
+
+                &.active-toggle-ball {
+                    background-color: rgba(12, 12, 12, 0.5);
+                    transform: translateX(20px);
+                }
+            }
+
+            &.active-toggle-switch {
+                background-color: rgba(12, 12, 12, 0.3);
+            }
+
+            &:hover {
+                cursor: pointer;
             }
         }
     }
