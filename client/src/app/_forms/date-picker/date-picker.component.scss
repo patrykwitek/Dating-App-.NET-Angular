@@ -30,3 +30,11 @@
         visibility: hidden;
     }
 }
+
+@media (max-width: 480px) {
+    .single-input {
+        input {
+            width: 70vw;
+        }
+    }
+}

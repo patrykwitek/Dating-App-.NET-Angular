@@ -20,6 +20,10 @@ nav {
         transition: .2s;
         margin: 0;
 
+        .app-title-logo {
+            display: none;
+        }
+
         &:hover {
             color: var(--header-hover-text);
         }
@@ -39,6 +43,10 @@ nav {
                 text-decoration: none;
                 color: white;
                 transition: .2s;
+
+                .nav-item-icon {
+                    display: none;
+                }
             }
 
             &:hover {
@@ -113,7 +121,7 @@ nav {
                 padding: 5px 10px;
                 padding-right: 50px;
                 font-size: .9rem;
-                
+
                 .icon {
                     transition: .2s;
                 }
@@ -173,11 +181,172 @@ nav {
             padding: 0 1rem;
             transition: .2s;
 
+            .login-icon {
+                display: none;
+            }
+
             &:hover {
                 background-color: var(--dropdown-list-background);
                 border: 1px var(--dropdown-list-background) solid;
                 color: var(--background-color-two);
                 box-shadow: 0px 0px 8px -2px black;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        height: 55px;
+        padding: 0 1rem;
+
+        .app-title {
+            font-size: 1.5rem;
+            position: relative;
+            bottom: 5px;
+        }
+
+        .nav-items {
+            padding: .4rem;
+
+            .nav-item {
+                .nav-item-text {
+                    .nav-item-title {
+                        display: none;
+                    }
+
+                    .nav-item-icon {
+                        display: inline;
+                    }
+                }
+            }
+        }
+
+        .dropdown-list {
+            .dropdown-list-toggle {
+                .welcome-text {
+                    display: none;
+                }
+
+                .users-profile-photo {
+                    width: 35px;
+                    position: relative;
+                    bottom: 4px;
+                    margin-right: 0;
+                }
+
+                .icon {
+                    display: none;
+                }
+            }
+
+            .dropdown-list-menu {
+                right: 10px;
+            }
+        }
+
+        .login-form {
+            display: flex;
+            align-items: center;
+            position: relative;
+            bottom: 3px;
+
+            .login-input {
+                height: 30px;
+                width: 115px;
+            }
+
+            .login-btn {
+                height: 30px;
+                padding: 0 10px;
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        height: 55px;
+        padding: 0 1rem;
+
+        .app-title {
+            font-size: 1.7rem;
+            position: relative;
+            bottom: 5px;
+
+            .app-title-text {
+                display: none;
+            }
+
+            .app-title-logo {
+                display: block;
+            }
+        }
+
+        .nav-items {
+            padding: 0;
+
+            .nav-item {
+                .nav-item-text {
+                    .nav-item-title {
+                        display: none;
+                    }
+
+                    .nav-item-icon {
+                        display: inline;
+                    }
+                }
+            }
+        }
+
+        .dropdown-list {
+            .dropdown-list-toggle {
+                .welcome-text {
+                    display: none;
+                }
+
+                .users-profile-photo {
+                    width: 35px;
+                    position: relative;
+                    bottom: 4px;
+                    margin-right: 0;
+                }
+
+                .icon {
+                    display: none;
+                }
+            }
+
+            .dropdown-list-menu {
+                border-radius: 0;
+                top: 55px;
+                right: 0px;
+                width: 100%;
+            }
+        }
+
+        .login-form {
+            display: flex;
+            align-items: center;
+            position: relative;
+            bottom: 3px;
+
+            .login-input {
+                height: 30px;
+                width: 100px;
+            }
+
+            .login-btn {
+                padding: 0;
+                border: none;
+
+                .login-text {
+                    display: none;
+                }
+
+                .login-icon {
+                    display: block;
+                }
             }
         }
     }

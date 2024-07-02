@@ -149,3 +149,12 @@
         }
     }
 }
+
+@media (max-width: 768px) {
+    .messages-container { 
+        .buttons-container {
+            padding-left: 0;
+            align-self: center;
+        }
+    }
+}

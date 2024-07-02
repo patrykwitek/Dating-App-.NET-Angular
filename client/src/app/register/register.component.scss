@@ -79,3 +79,25 @@
         }
     }
 }
+
+@media (max-width: 768px) {
+    .register-form {
+        width: 80vw;
+    }
+}
+
+@media (max-width: 480px) {
+    .register-form {
+        padding: 2rem 0.5rem;
+
+        h2 {
+            font-size: 2rem;
+        }
+
+        .button-container {
+            button {
+                width: 70vw;
+            }
+        }
+    }
+}

@@ -149,3 +149,97 @@
         }
     }
 }
+
+@media (max-width: 768px) {
+    .details-container {
+        padding: 0 1rem;
+        justify-content: center;
+
+        .left-side {
+            width: 30vw;
+    
+            .buttons-container {   
+                button {
+                    width: 100%;
+                }
+            }
+        }
+    
+        .right-side {
+            width: 50vw;
+
+            .about-container{
+                p{
+                    width: 40vw;
+                }
+            }
+    
+            .interests-container{
+                p{
+                    width: 40vw;
+                }
+            }
+    
+            .photos-container{
+                p{
+                    width: 40vw;
+                }
+            }
+    
+            .messages-container{
+                p{
+                    width: 40vw;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .details-container {
+        gap: 1rem;
+    
+        .left-side {
+            align-self: center;
+            width: 80vw;
+    
+            img {
+                width: 80%;
+            }
+    
+            .buttons-container {   
+                button {
+                    width: 70vw;
+                }
+            }
+        }
+    
+        .right-side {
+            width: 80vw;
+
+            .about-container{
+                p{
+                    width: 60vw;
+                }
+            }
+    
+            .interests-container{
+                p{
+                    width: 60vw;
+                }
+            }
+    
+            .photos-container{
+                p{
+                    width: 60vw;
+                }
+            }
+    
+            .messages-container{
+                p{
+                    width: 60vw;
+                }
+            }
+        }
+    }
+}

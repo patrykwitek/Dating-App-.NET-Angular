@@ -152,3 +152,28 @@
         }
     }
 }
+
+@media (max-width: 768px) {
+    .member-list-container {
+        .action-buttons-container {
+            form {
+                justify-content: center;
+    
+                button {
+                    flex-basis: 60%;
+                }
+    
+                .filter-container {
+                    bottom: 0;
+                    margin-left: 0;
+                }
+            }
+        }
+    
+        .members-container {
+            max-width: 100vw;
+            gap: 1rem;
+            padding: 0 .5rem;
+        }
+    }
+}
