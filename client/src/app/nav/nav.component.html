@@ -1,18 +1,37 @@
 <nav>
-    <a class="app-title" routerLink="/">{{"DatingApp" | translate}}</a>
+    <a class="app-title" routerLink="/">
+        <span class="app-title-text">
+            {{"DatingApp" | translate}}
+        </span>
+        <span class="app-title-logo">
+            💗
+        </span>
+    </a>
     <ul class="nav-items">
         <ng-container *ngIf="accountService.currentUser$ | async">
             <li class="nav-item">
-                <a class="nav-item-text" routerLink="/members" routerLinkActive="active">{{"Matches" | translate}}</a>
+                <a class="nav-item-text" routerLink="/members" routerLinkActive="active">
+                    <span class="nav-item-icon"><mat-icon>link</mat-icon></span>
+                    <span class="nav-item-title">{{"Matches" | translate}}</span>
+                </a>
             </li>
             <li class="nav-item">
-                <a class="nav-item-text" routerLink="/sent-likes" routerLinkActive="active">{{"SentLikes" | translate}}</a>
+                <a class="nav-item-text" routerLink="/sent-likes" routerLinkActive="active">
+                    <span class="nav-item-icon"><mat-icon>thumb_up</mat-icon></span>
+                    <span class="nav-item-title">{{"SentLikes" | translate}}</span>
+                </a>
             </li>
             <li class="nav-item">
-                <a class="nav-item-text" routerLink="/messages" routerLinkActive="active">{{"Messages" | translate}}</a>
+                <a class="nav-item-text" routerLink="/messages" routerLinkActive="active">
+                    <span class="nav-item-icon"><mat-icon>forum</mat-icon></span>
+                    <span class="nav-item-title">{{"Messages" | translate}}</span>
+                </a>
             </li>
             <li *appHasRole="['Admin', 'Moderator']" class="nav-item">
-                <a class="nav-item-text" routerLink="/admin" routerLinkActive="active">{{"Admin" | translate}}</a>
+                <a class="nav-item-text" routerLink="/admin" routerLinkActive="active">
+                    <span class="nav-item-icon"><mat-icon>shield</mat-icon></span>
+                    <span class="nav-item-title">{{"Admin" | translate}}</span>
+                </a>
             </li>
         </ng-container>
     </ul>
@@ -20,7 +39,7 @@
         <a [className]="'dropdown-list-toggle ' + (showDropdownMenu ? 'highlighted' : '')"
             (click)="toggleDropdownMenu()">
             <img src="{{user.photoUrl || './assets/user.png'}}" alt="user's profile photo" class="users-profile-photo">
-            <div>{{"Welcome" | translate}} {{user.knownAs | titlecase}}</div>
+            <div class="welcome-text">{{"Welcome" | translate}} {{user.knownAs | titlecase}}</div>
             <mat-icon class="icon">keyboard_arrow_down</mat-icon>
         </a>
         <div [className]="'dropdown-list-menu ' + (showDropdownMenu ? 'active' : 'inactive')">
@@ -46,6 +65,9 @@
         autocomplete="off">
         <input name="username" [(ngModel)]="model.username" class="login-input" type="text" [placeholder]="'Username' | translate">
         <input name="password" [(ngModel)]="model.password" class="login-input" type="password" [placeholder]="'Password' | translate">
-        <button class="login-btn" type="submit">{{"Login" | translate}}</button>
+        <button class="login-btn" type="submit">
+            <span class="login-text">{{"Login" | translate}}</span>
+            <mat-icon class="login-icon">send</mat-icon>
+        </button>
     </form>
 </nav>

@@ -118,3 +118,13 @@
         }
     }
 }
+
+@media (max-width: 768px) {
+    .member-container {
+        .photo-container {
+            img {
+                width: 8rem;
+            }
+        }
+    }
+}
