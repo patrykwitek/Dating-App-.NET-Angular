@@ -46,7 +46,7 @@ also install ASP.NET, I used version 6 and .NET SDK
 
 After cloning the repository, you can launch the application with commands
 
--on the frontend:
+- on the frontend:
 `ng serve`
 
 - on the backend:
@@ -56,6 +56,7 @@ After cloning the repository, you can launch the application with commands
 ## 3. Used Technologies 💻
 
 Frontend – Angular
+
 Backend – ASP.NET
 
 <a name="security"></a>
@@ -69,21 +70,42 @@ To secure user passwords in the database the application used password hash and 
 ## 5. Branches 🪢
 
 **DA-001**: add angular to project & add CORS
+
 **DA-002**: add register & login functionality on backend
+
 **DA-003**: login & register functionality
+
 **DA-004**: add main routes to application
+
 **DA-005**: error handling
+
 **DA-006**: seeding users data
+
 **DA-007**: user's page
+
 **DA-008**: edit user page
+
 **DA-009**: uploading user's photos functionality
+
 **DA-010**: register form
+
 **DA-011**: users pagination
+
 **DA-012**: likes feature
+
 **DA-013**: messages feature
+
 **DA-014**: user roles & admin panel
+
 **DA-015**: realtime messages & online status
+
 **DA-016**: fix bugs & cosmetic changes
+
+**DA-017**: translations
+
+**DA-018**: night mode
+
+**DA-019**: responsiveness
 
 <a name="register"></a>
 ## 6. Register & Login 🙋‍♂️
@@ -182,17 +204,23 @@ https://github.com/patrykwitek/Dating-App-.NET-Angular/assets/117681023/3e947bd8
 <a name="translations"></a>
 ## 17. Translations 💁
 
-*This functionality will come in the near future*
+The application offers translations into Polish and English. The language can be changed in the settings tab.
+
+https://github.com/patrykwitek/Dating-App-.NET-Angular/assets/117681023/d7a6cb30-caa6-443a-91d1-4eee964dbc07
 
 <a name="lightdarkmode"></a>
 ## 18. Light & Dark Mode 🌙
 
-*This functionality will come in the near future*
+To make it comfortable for the user to use the app after sunset, the user can set the night mode in the settings tab.
+
+https://github.com/patrykwitek/Dating-App-.NET-Angular/assets/117681023/2df1dd21-9dc1-4139-ae63-10c522ef9cf0
 
 <a name="responsiveness"></a>
 ## 19. Responsiveness 📱
 
-*This functionality will come in the near future*
+The app is responsive for desktops, tablets and phones.
+
+https://github.com/patrykwitek/Dating-App-.NET-Angular/assets/117681023/8ec0f9b7-315d-418b-8a07-0a7c32846a9c
 
 [🔼 Back to top](#top)
 
